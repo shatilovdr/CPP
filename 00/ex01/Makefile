@@ -1,5 +1,5 @@
-# MODULE00_EX00
-NAME			:=	megaphone
+# MODULE00_EX01
+NAME			:=	phonebook
 
 # COMPILER
 CPP				:=	c++ -std=c++17
@@ -11,8 +11,11 @@ RED				:=	\033[41m
 EC				:=	\033[0m
 
 # SOURCE_FILES
-SRCS			:=	megaphone.cpp
-SRCS_PATH		:=	
+SRCS			:=	main.cpp PhoneBook.cpp Contact.cpp
+
+# HEADER_FILES
+HEADERS			:=	PhoneBook.hpp Contact.hpp
+INCLUDES		:=	$(addprefix -I , $(HEADERS))
 
 # OBJECT_FILES
 OBJS_PATH		:=	objs/
@@ -24,8 +27,8 @@ $(NAME): $(OBJS_PATH) $(OBJS)
 	@$(CPP) $(FLAGS)  $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) created successfully!$(EC)"
 
-$(OBJS_PATH)%.o: $(SRCS_PATH)%.cpp
-	@$(CPP) $(FLAGS) -c $< -o $@
+$(OBJS_PATH)%.o: %.cpp $(HEADERS)
+	@$(CPP) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJS_PATH):
 	@mkdir -p $(OBJS_PATH)
