@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/31 16:52:50 by dshatilo          #+#    #+#             */
+/*   Updated: 2024/05/31 17:13:58 by dshatilo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef WEAPON_HPP_
+# define WEAPON_HPP_
+
+# include <string>
+
+class Weapon {
+public:
+	Weapon(const std::string& type);
+	~Weapon();
+	const std::string&	getType(void);
+	void				setType(const std::string& type);
+
+private:
+	std::string	type;
+};
+
+
+#endif
