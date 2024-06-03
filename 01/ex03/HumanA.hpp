@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:52:50 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/05/31 17:24:58 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/03 14:46:04 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ public:
 	~HumanA();
 	void		attack(void);
 private:
-	std::string	_name;
-	Weapon		_weapon;
+	std::string		_name;
+	const Weapon&	_weapon;
 };
 
 

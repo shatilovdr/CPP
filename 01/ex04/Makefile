@@ -1,5 +1,5 @@
-# MODULE01_EX03
-NAME			:=	violence
+# MODULE01_EX04
+NAME			:=	sifl
 
 # COMPILER
 CPP				:=	c++ -std=c++17
@@ -11,11 +11,7 @@ RED				:=	\033[41m
 EC				:=	\033[0m
 
 # SOURCE_FILES
-SRCS			:=	main.cpp \
-					Weapon.cpp \
-					HumanA.cpp \
-					HumanB.cpp 
-					
+SRCS			:=	main.cpp 
 SRCS_PATH		:=	
 
 # OBJECT_FILES
