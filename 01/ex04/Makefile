@@ -1,5 +1,5 @@
 # MODULE01_EX04
-NAME			:=	sifl
+NAME			:=	substitute
 
 # COMPILER
 CPP				:=	c++ -std=c++17
@@ -11,7 +11,8 @@ RED				:=	\033[41m
 EC				:=	\033[0m
 
 # SOURCE_FILES
-SRCS			:=	main.cpp 
+SRCS			:=	main.cpp \
+					Substitute.cpp 
 SRCS_PATH		:=	
 
 # OBJECT_FILES
