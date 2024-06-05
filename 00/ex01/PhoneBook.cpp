@@ -6,14 +6,16 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 20:55:43 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/05/28 17:46:01 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:23:23 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(){
-	contacts_num = 0;
+PhoneBook::PhoneBook()
+{
+	_contacts_num = 0;
+	_curr_first = 0;
 }
 
 bool	PhoneBook::Run(std::string cmd)
@@ -21,10 +23,10 @@ bool	PhoneBook::Run(std::string cmd)
 	if (cmd == "ADD")
 		return AddContact();
 	if (cmd == "SEARCH")
-		return true;
+		return SearchContact();
 	if (cmd == "EXIT")
 		return false;
-	std::cout << "NOPE\n";
+	std::cout << "Unknown command. Try again."<< '\n';
 	return true;
 
 }
@@ -35,7 +37,7 @@ bool	PhoneBook::AddContact(void)
 	std::string nick_name;
 	std::string phone_number;
 	std::string dark_secret;
-	
+
 	if (ReadInput("Input first name: ", &first_name) == false)
 		return false;
 	if (ReadInput("Input last name: ", &last_name) == false)
@@ -46,8 +48,15 @@ bool	PhoneBook::AddContact(void)
 		return false;
 	if (ReadInput("Input dark secret: ", &dark_secret) == false)
 		return false;
-	contacts[contacts_num % MAX_CONTACTS] = Contact(first_name, last_name, nick_name, phone_number, dark_secret);
-	contacts_num++;
+	int	pos;
+	if (_contacts_num < MAX_CONTACTS)
+		pos = _contacts_num++;
+	else
+	{
+		pos = _curr_first;
+		_curr_first = (_curr_first + 1) % MAX_CONTACTS;
+	}
+	contacts[pos] = Contact(first_name, last_name, nick_name, phone_number, dark_secret);
 	return true;
 }
 
@@ -69,10 +78,42 @@ bool	PhoneBook::ReadInput(std::string msg, std::string* var)
 	return true;
 }
 
-void	PhoneBook::SearchContact(int num)
+bool	PhoneBook::SearchContact()
 {
-	for(Contact curr : contacts)
+	if (_contacts_num == 0)
 	{
-		curr.prin
+		std::cout << "Phonebook is empty.\n";
+		return true;
 	}
+	std::string splitter = "+----------+----------+----------+----------+\n";
+	std::cout << splitter;
+	std::cout << "|     INDEX|FIRST NAME| LAST NAME| NICK NAME|\n";
+	for(int i = 0; i < _contacts_num; i++)
+	{
+		std::cout << splitter;
+		int	pos = (_curr_first + i) % MAX_CONTACTS;
+		contacts[pos].PreviewContact(i + 1);
+	}
+	std::cout << splitter << '\n';
+	int	print_num;
+	while (true)
+	{
+		std::cout << "Input contact index: ";
+		std::cin >> print_num;
+		if (std::cin.eof())
+			return false;
+		else if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(LONG_MAX, '\n');
+			continue;
+		}
+		else if (print_num > _contacts_num || print_num < 1)
+			continue;
+		else
+			break;
+	}
+	contacts[(_curr_first + print_num - 1) % MAX_CONTACTS].PrintContact();
+	std::cin.ignore(LONG_MAX, '\n');
+	return true;
 }
