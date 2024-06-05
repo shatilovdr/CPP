@@ -2,7 +2,7 @@
 NAME			:=	account
 
 # COMPILER
-CPP				:=	c++ -std=c++17
+CPP				:=	c++ -std=c++98
 FLAGS			:=	-Wall -Wextra -Werror -g 
 
 # COLORS
