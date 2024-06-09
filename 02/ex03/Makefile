@@ -12,7 +12,9 @@ EC				:=	\033[0m
 
 # SOURCE_FILES
 SRCS			:=	main.cpp \
-					Fixed.cpp 
+					Fixed.cpp \
+					Point.cpp \
+					bsp.cpp
 SRCS_PATH		:=	
 
 # OBJECT_FILES
