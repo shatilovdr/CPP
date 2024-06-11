@@ -1,5 +1,6 @@
-git 
+git
 **/.DS_Store
 *.pdf
 **/.vscode
+**/objs/
 README.md
