@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:57:54 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 19:03:38 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/11 19:03:25 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAG_TRAP_HPP_
-#define FRAG_TRAP_HPP_
+#ifndef SCAV_TRAP_HPP_
+#define SCAV_TRAP_HPP_
 
 #include <string>
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
  public:
-  FragTrap() = delete;
-  FragTrap(std::string name);
-  FragTrap(const FragTrap& other);
-  FragTrap& operator=(const FragTrap& other);
+  ScavTrap() = delete;
+  ScavTrap(std::string name);
+  ScavTrap(const ScavTrap& other);
+  ScavTrap& operator=(const ScavTrap& other);
 
-  ~FragTrap();
+  ~ScavTrap();
 
   void attack(const std::string& target);
   void takeDamage(unsigned int amount);
   void beRepaired(unsigned int amount);
-  void highFivesGuys(void);
+  void guardGate();
 };
 
 #endif
