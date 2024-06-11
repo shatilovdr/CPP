@@ -1,4 +1,4 @@
-# MODULE03_EX00
+# MODULE03_EX01
 NAME			:=	ScavTrap
 
 # COMPILER
