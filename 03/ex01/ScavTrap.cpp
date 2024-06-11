@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 08:03:32 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 16:11:31 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:43:10 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,53 @@
 #include <iostream>
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20) {
-  std::cout << "ScavTrap constructor with parameter called\n";
+  std::cout << "ScavTrap " << name_ << " constructor with parameter called\n";
 }
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
-  std::cout << "ScavTrap copy constructor called\n";
+  std::cout << "ScavTrap " << name_ << " copy constructor called\n";
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
-  std::cout << "ScavTrap copy assignment operator called\n";
+  std::cout << "ScavTrap " << name_ << " copy assignment operator called\n";
   ClapTrap::operator=(other);
   return *this;
 }
 
 ScavTrap::~ScavTrap() {
-  std::cout << "ScavTrap destructor called\n";
+  std::cout << "ScavTrap " << name_ << " destructor called\n";
+}
+
+void ScavTrap::attack(const std::string& target) {
+  if (IsExhausted("ScavTrap ") == true) {
+    return;
+  }
+  std::cout << "ScavTrap " << name_ << " attacks " << target << ", causing "
+            << attack_dmg_ << " points of damage!\n";
+  --hit_pnt_;
+}
+
+void ScavTrap::takeDamage(unsigned int amount) {
+  if (IsExhausted("ScavTrap ") == true) {
+    return;
+  }
+  amount = hit_pnt_ < amount ? hit_pnt_ : amount;
+  std::cout << "ScavTrap " << name_ << " takes " << amount
+            << " points of damage!\n";
+  hit_pnt_ -= amount;
+}
+
+void ScavTrap::beRepaired(unsigned int amount) {
+  if (IsExhausted("ScavTrap ") == true) {
+    return;
+  }
+  amount = UINT_MAX - hit_pnt_ > amount ? amount : UINT_MAX - hit_pnt_;
+  std::cout << "ScavTrap " << name_ << " repairs, getting " << amount
+            << " points of damage!\n";
+  --energy_pnt_;
+  hit_pnt_ += amount;
 }
 
 void ScavTrap::guardGate() {
-  std::cout << "ScavTrap is now in Gate keeper mode.\n";
+  std::cout << "ScavTrap " << name_ << " is now in Gate keeper mode.\n";
 }

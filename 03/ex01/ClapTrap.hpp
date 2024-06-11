@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:57:54 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 16:03:57 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:27:41 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,22 @@ class ClapTrap {
 
   ~ClapTrap();
 
-  void attack(const std::string& target);
-  void takeDamage(unsigned int amount);
-  void beRepaired(unsigned int amount);
+  virtual void attack(const std::string& target);
+  virtual void takeDamage(unsigned int amount);
+  virtual void beRepaired(unsigned int amount);
 
  protected:
   ClapTrap(std::string  name,
            unsigned int hit_pnt,
            unsigned int energy_pnt,
            unsigned int attack_dmg);
+
+  bool IsExhausted(std::string type);
+
   std::string  name_;
   unsigned int hit_pnt_;
   unsigned int energy_pnt_;
   unsigned int attack_dmg_;
-
- private:
-  bool IsExhausted();
 };
 
 #endif

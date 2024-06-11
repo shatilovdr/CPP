@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:57:54 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 12:12:51 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:28:00 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ class ScavTrap : public ClapTrap {
   ScavTrap& operator=(const ScavTrap& other);
 
   ~ScavTrap();
+
+  void attack(const std::string& target);
+  void takeDamage(unsigned int amount);
+  void beRepaired(unsigned int amount);
 
   void guardGate();
 };

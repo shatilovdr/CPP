@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 08:03:32 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 16:36:16 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/11 18:34:19 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 ClapTrap::ClapTrap(std::string name)
     : name_(name), hit_pnt_(10), energy_pnt_(10), attack_dmg_(0) {
-  std::cout << "ClapTrap constructor with parameter called\n";
+  std::cout << "ClapTrap " << name_ << " constructor with parameter called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
@@ -23,11 +23,11 @@ ClapTrap::ClapTrap(const ClapTrap& other)
       hit_pnt_(other.hit_pnt_),
       energy_pnt_(other.energy_pnt_),
       attack_dmg_(other.attack_dmg_) {
-  std::cout << "ClapTrap copy constructor called\n";
+  std::cout << "ClapTrap " << name_ << " copy constructor called\n";
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
-  std::cout << "ClapTrap copy assignment operator called\n";
+  std::cout << "ClapTrap " << name_ << " copy assignment operator called\n";
   if (this == &other) {
     return *this;
   }
@@ -39,11 +39,11 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 }
 
 ClapTrap::~ClapTrap() {
-  std::cout << "ClapTrap destructor called\n";
+  std::cout << "ClapTrap " << name_ << " destructor called\n";
 }
 
 void ClapTrap::attack(const std::string& target) {
-  if (IsExhausted() == true) {
+  if (IsExhausted("ClapTrap ") == true) {
     return;
   }
   std::cout << "ClapTrap " << name_ << " attacks " << target << ", causing "
@@ -52,7 +52,7 @@ void ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
-  if (IsExhausted() == true) {
+  if (IsExhausted("ClapTrap ") == true) {
     return;
   }
   amount = hit_pnt_ < amount ? hit_pnt_ : amount;
@@ -62,7 +62,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-  if (IsExhausted() == true) {
+  if (IsExhausted("ClapTrap ") == true) {
     return;
   }
   amount = UINT_MAX - hit_pnt_ > amount ? amount : UINT_MAX - hit_pnt_;
@@ -80,12 +80,13 @@ ClapTrap::ClapTrap(std::string  name,
       hit_pnt_(hit_pnt),
       energy_pnt_(energy_pnt),
       attack_dmg_(attack_dmg) {
-  std::cout << "ClapTrap constructor with all parameters called\n";
+  std::cout << "ClapTrap " << name_
+            << " constructor with all parameters called\n";
 }
 
-bool ClapTrap::IsExhausted() {
+bool ClapTrap::IsExhausted(std::string type) {
   if (energy_pnt_ <= 0 || hit_pnt_ <= 0) {
-    std::cout << "ClapTrap " << name_ << " is exhausted\n";
+    std::cout << type << name_ << " is exhausted\n";
     return true;
   } else {
     return false;
