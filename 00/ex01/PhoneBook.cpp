@@ -105,7 +105,7 @@ bool	PhoneBook::SearchContact()
 		else if (std::cin.fail())
 		{
 			std::cin.clear();
-			std::cin.ignore(LONG_MAX, '\n');
+			std::cin.ignore(__LONG_MAX__, '\n');
 			continue;
 		}
 		else if (print_num > _contacts_num || print_num < 1)
@@ -114,6 +114,6 @@ bool	PhoneBook::SearchContact()
 			break;
 	}
 	contacts[(_curr_first + print_num - 1) % MAX_CONTACTS].PrintContact();
-	std::cin.ignore(LONG_MAX, '\n');
+	std::cin.ignore(__LONG_MAX__, '\n');
 	return true;
 }

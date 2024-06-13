@@ -12,6 +12,7 @@
 
 #include "ClapTrap.hpp"
 #include <iostream>
+#include <limits>
 
 ClapTrap::ClapTrap(std::string name)
     : name_(name), hit_pnt_(10), energy_pnt_(10), attack_dmg_(0) {
@@ -65,7 +66,8 @@ void ClapTrap::beRepaired(unsigned int amount) {
   if (IsExhausted() == true) {
     return;
   }
-  amount = UINT_MAX - hit_pnt_ > amount ? amount : UINT_MAX - hit_pnt_;
+  unsigned int max = std::numeric_limits<unsigned int>::max();
+  amount = max - hit_pnt_ > amount ? amount : max - hit_pnt_;
   std::cout << "ClapTrap " << name_ << " repairs, getting " << amount
             << " points of damage!\n";
   --energy_pnt_;

@@ -12,6 +12,8 @@
 
 #include "FragTrap.hpp"
 #include <iostream>
+#include <limits>
+
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 50, 20) {
   std::cout << "FragTrap " << name_ << " constructor with parameter called\n";
@@ -54,7 +56,8 @@ void FragTrap::beRepaired(unsigned int amount) {
   if (IsExhausted("FragTrap ") == true) {
     return;
   }
-  amount = UINT_MAX - hit_pnt_ > amount ? amount : UINT_MAX - hit_pnt_;
+  unsigned int max = std::numeric_limits<unsigned int>::max();
+  amount = max - hit_pnt_ > amount ? amount : max - hit_pnt_;
   std::cout << "FragTrap " << name_ << " repairs, getting " << amount
             << " points of damage!\n";
   --energy_pnt_;

@@ -123,8 +123,10 @@ void	Account::displayStatus(void) const
 
 void	Account::_displayTimestamp(void)
 {
-	time_t		tt = std::time(NULL);
-	std::tm*	time = localtime(&tt);
+	time_t		tt = time(NULL);
+	tm*	time = localtime(&tt);
 	
-	std::cout << '[' << std::put_time(time,"%Y%m%d_%H%M%S") << "] ";
+	char timestamp[16];
+    strftime(timestamp, sizeof(timestamp), "%Y%m%d_%H%M%S", time);
+    std::cout << '[' << timestamp << "] ";
 }
