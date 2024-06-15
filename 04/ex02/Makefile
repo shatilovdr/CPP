@@ -1,5 +1,5 @@
-# MODULE04_EX01
-NAME			:=	brain
+# MODULE04_EX02
+NAME			:=	abstract_class
 
 # COMPILER
 CPP				:=	c++ -std=c++11
