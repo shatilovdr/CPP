@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/15 14:06:21 by dshatilo          #+#    #+#             */
+/*   Updated: 2024/06/15 14:21:44 by dshatilo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CAT_HPP_
+#define CAT_HPP_
+
+#include <string>
+#include "Animal.hpp"
+
+class Cat : public Animal {
+ public:
+  Cat();
+  Cat(const Cat& other);
+  Cat& operator=(const Cat& other);
+
+  ~Cat() override;
+
+  void makeSound() const override;
+};
+
+#endif
