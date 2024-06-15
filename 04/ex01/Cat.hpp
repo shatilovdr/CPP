@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:06:21 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/15 14:21:44 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:56:15 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal {
  public:
@@ -25,6 +26,11 @@ class Cat : public Animal {
   ~Cat() override;
 
   void makeSound() const override;
+  void AddIdea(const std::string& idea) const;
+  void PrintIdeas() const;
+
+ private:
+  Brain* const brain_;
 };
 
 #endif
