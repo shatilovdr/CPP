@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                       :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 08:03:32 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 18:43:10 by dshatilo         ###   ########.fr       */
+/*   Created: 2024/06/15 14:06:04 by dshatilo          #+#    #+#             */
+/*   Updated: 2024/06/15 14:59:41 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Cat.hpp"
+#include <iostream>
 
-Cat::Cat() : type("Cat") {
+Cat::Cat() : Animal("Cat") {
   std::cout << "Cat default constructor called\n";
 }
 
-Cat::Cat(const Cat& other) : type(other.type) {
+Cat::Cat(const Cat& other) : Animal(other) {
   std::cout << "Cat copy constructor called\n";
 }
 
 Cat& Cat::operator=(const Cat& other) {
   std::cout << "Cat copy assignment operator called\n";
-  if (&other == this)
+  if (&other == this) {
     return *this;
-  type = other.type;
+  }
+  Animal::operator=(other);
   return *this;
 }
 
@@ -34,5 +35,5 @@ Cat::~Cat() {
 }
 
 void Cat::makeSound() const {
-  std::cout << "Meow💩\n";
+  std::cout << "Meow🐈\n";
 }

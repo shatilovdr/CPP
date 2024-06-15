@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 14:06:21 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/15 14:21:44 by dshatilo         ###   ########.fr       */
+/*   Created: 2024/06/15 14:49:12 by dshatilo          #+#    #+#             */
+/*   Updated: 2024/06/15 14:49:15 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP_
-#define CAT_HPP_
+#ifndef WRONGCAT_HPP_
+#define WRONGCAT_HPP_
 
 #include <string>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal {
+class WrongCat : public WrongAnimal {
  public:
-  Cat();
-  Cat(const Cat& other);
-  Cat& operator=(const Cat& other);
+  WrongCat();
+  WrongCat(const WrongCat& other);
+  WrongCat& operator=(const WrongCat& other);
 
-  ~Cat() override;
+  ~WrongCat();
 
-  void makeSound() const override;
+  void makeSound() const;
 };
 
 #endif

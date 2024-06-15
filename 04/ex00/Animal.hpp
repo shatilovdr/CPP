@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 22:57:54 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 19:03:25 by dshatilo         ###   ########.fr       */
+/*   Created: 2024/06/15 14:05:54 by dshatilo          #+#    #+#             */
+/*   Updated: 2024/06/15 15:01:16 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ class Animal {
 
   virtual ~Animal();
 
-  std::string getType() const;
+  std::string  getType() const;
   virtual void makeSound() const;
 
  protected:
-  std::string type;
+  explicit Animal(std::string type);
+
+  std::string type_;
 };
 
 #endif

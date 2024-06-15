@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 22:57:54 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 19:03:25 by dshatilo         ###   ########.fr       */
+/*   Created: 2024/06/15 14:06:40 by dshatilo          #+#    #+#             */
+/*   Updated: 2024/06/15 14:10:15 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,9 @@ class Dog : public Animal {
   Dog(const Dog& other);
   Dog& operator=(const Dog& other);
 
-  ~Dog();
+  ~Dog() override;
 
   void makeSound() const override;
-
- protected:
-  std::string type;
 };
 
 #endif

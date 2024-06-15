@@ -14,7 +14,10 @@ EC				:=	\033[0m
 SRCS			:=	main.cpp \
 					Animal.cpp \
 					Dog.cpp \
-					Cat.cpp
+					Cat.cpp \
+					WrongAnimal.cpp \
+					WrongDog.cpp \
+					WrongCat.cpp
 SRCS_PATH		:=	
 
 # OBJECT_FILES

@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongDog.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 14:06:29 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/15 14:22:16 by dshatilo         ###   ########.fr       */
+/*   Created: 2024/06/15 14:49:02 by dshatilo          #+#    #+#             */
+/*   Updated: 2024/06/15 14:49:05 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongDog.hpp"
 #include <iostream>
 
-Dog::Dog() : Animal("Dog") {
-  std::cout << "Dog default constructor called\n";
+WrongDog::WrongDog() : WrongAnimal("WrongDog") {
+  std::cout << "WrongDog default constructor called\n";
 }
 
-Dog::Dog(const Dog& other) : Animal(other) {
-  std::cout << "Dog copy constructor called\n";
+WrongDog::WrongDog(const WrongDog& other) : WrongAnimal(other) {
+  std::cout << "WrongDog copy constructor called\n";
 }
 
-Dog& Dog::operator=(const Dog& other) {
-  std::cout << "Dog copy assignment operator called\n";
+WrongDog& WrongDog::operator=(const WrongDog& other) {
+  std::cout << "WrongDog copy assignment operator called\n";
   if (&other == this) {
     return *this;
   }
-  Animal::operator=(other);
+  WrongAnimal::operator=(other);
   return *this;
 }
 
-Dog::~Dog() {
-  std::cout << "Dog destructor called\n";
+WrongDog::~WrongDog() {
+  std::cout << "WrongDog destructor called\n";
 }
 
-void Dog::makeSound() const {
+void WrongDog::makeSound() const {
   std::cout << "Woof, woof🐶\n";
 }
