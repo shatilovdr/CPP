@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Amateria.hpp                                       :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/16 09:27:26 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/16 09:38:17 by dshatilo         ###   ########.fr       */
+/*   Created: 2024/06/16 09:37:18 by dshatilo          #+#    #+#             */
+/*   Updated: 2024/06/16 17:06:36 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP_
-#define AMATERIA_HPP_
+#ifndef ICHARACTER_HPP_
+#define ICHARACTER_HPP_
 
 #include <string>
-#include "ICharacter.hpp"
+#include "Amateria.hpp"
 
-class AMateria {
+class AMateria;
+
+class ICharacter {
  public:
-  AMateria();
-  AMateria(const AMateria& other);
-  AMateria(std::string const& type);
-  AMateria& operator=(const AMateria& other);
-
-  virtual ~AMateria() = 0;
-
-  std::string const& getType() const;
-  virtual AMateria*  clone() const = 0;
-  virtual void       use(ICharacter& target);
-
- protected:
-  std::string type_;
+  virtual ~ICharacter() {}
+  virtual std::string const& getName() const                  = 0;
+  virtual void               equip(AMateria* m)               = 0;
+  virtual void               unequip(int idx)                 = 0;
+  virtual void               use(int idx, ICharacter& target) = 0;
 };
 
 #endif
