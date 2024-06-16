@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:26:44 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/15 14:26:48 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/16 15:06:02 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ WrongAnimal::~WrongAnimal() {
   std::cout << "WrongAnimal destructor called\n";
 }
 
-std::string WrongAnimal::getType() const {
+const std::string& WrongAnimal::getType() const {
   return type_;
 }
 

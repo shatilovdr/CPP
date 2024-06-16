@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:05:41 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/15 14:52:28 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/16 15:06:38 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Animal::~Animal() {
   std::cout << "Animal destructor called\n";
 }
 
-std::string Animal::getType() const {
+const std::string& Animal::getType() const {
   return type_;
 }
 
@@ -42,6 +42,6 @@ void Animal::makeSound() const {
   std::cout << "*Default Animal sound*\n";
 }
 
-Animal::Animal(std::string type) : type_(type) {
+Animal::Animal(const std::string& type) : type_(type) {
   std::cout << "Animal constructor with parameter called\n";
 }

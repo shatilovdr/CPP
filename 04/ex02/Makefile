@@ -15,7 +15,7 @@ SRCS			:=	main.cpp \
 					Animal.cpp \
 					Dog.cpp \
 					Cat.cpp \
-					Brain.cpp		
+					Brain.cpp
 SRCS_PATH		:=	
 
 # OBJECT_FILES

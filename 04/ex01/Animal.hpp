@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:05:54 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/15 15:01:16 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/16 15:06:46 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ class Animal {
 
   virtual ~Animal();
 
-  std::string  getType() const;
+  const std::string&  getType() const;
   virtual void makeSound() const;
 
  protected:
-  explicit Animal(std::string type);
+  explicit Animal(const std::string& type);
 
   std::string type_;
 };
