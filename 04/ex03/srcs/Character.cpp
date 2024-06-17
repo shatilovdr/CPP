@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 14:47:34 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/17 14:11:40 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 15:46:58 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ Character::Character(std::string const& name) : name_(name), inventory_{nullptr}
   std::cout << "Character constructor with parameter called\n";
 }
 
-Character::Character(const Character& other) : inventory_{nullptr} {
+Character::Character(const Character& other) : name_(other.name_), inventory_{nullptr} {
   std::cout << "Character copy constructor called\n";
-  *this = other;
+  for (int i = 0; i < INVENTORY_CAPACITY; ++i) {
+    if (other.inventory_[i] != nullptr) {
+      inventory_[i] = other.inventory_[i]->clone();
+    }
+  }
 }
 
 Character& Character::operator=(const Character& other) {
@@ -60,6 +64,8 @@ void Character::equip(AMateria* m) {
         return;
     }
   }
+  std::cout << "Character " << getName() << " slots are full. Materia " << m->getType() << " will be removed.\n";
+  delete m;
 }
 
 void Character::unequip(int idx) {
