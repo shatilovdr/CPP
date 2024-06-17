@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 14:47:34 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/16 15:48:36 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:49:03 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,3 @@ AMateria::~AMateria() {
 std::string const& AMateria::getType() const {
   return type_;
 }
-

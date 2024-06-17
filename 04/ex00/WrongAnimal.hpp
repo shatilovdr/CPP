@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:29:01 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/16 15:06:29 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:53:50 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class WrongAnimal {
   ~WrongAnimal();
 
   const std::string& getType() const;
-  void        makeSound() const;
+  void               makeSound() const;
 
  protected:
   explicit WrongAnimal(std::string type);

@@ -6,14 +6,14 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 14:47:34 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/16 18:29:42 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:50:08 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 #include <iostream>
 
-Cure::Cure() : AMateria("Cure") {
+Cure::Cure() : AMateria("cure") {
   std::cout << "Cure default constructor called\n";
 }
 

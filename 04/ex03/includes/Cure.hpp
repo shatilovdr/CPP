@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 09:27:26 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/16 18:44:13 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:47:17 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Cure : public AMateria {
   ~Cure() override;
 
   Cure* clone() const override;
-  void use(ICharacter& target) override;
+  void  use(ICharacter& target) override;
 };
 
 #endif

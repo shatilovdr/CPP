@@ -6,18 +6,20 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 14:47:34 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/17 15:46:58 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:49:08 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include <iostream>
 
-Character::Character(std::string const& name) : name_(name), inventory_{nullptr} {
+Character::Character(std::string const& name)
+    : name_(name), inventory_{nullptr} {
   std::cout << "Character constructor with parameter called\n";
 }
 
-Character::Character(const Character& other) : name_(other.name_), inventory_{nullptr} {
+Character::Character(const Character& other)
+    : name_(other.name_), inventory_{nullptr} {
   std::cout << "Character copy constructor called\n";
   for (int i = 0; i < INVENTORY_CAPACITY; ++i) {
     if (other.inventory_[i] != nullptr) {
@@ -60,26 +62,23 @@ std::string const& Character::getName() const {
 void Character::equip(AMateria* m) {
   for (int i = 0; i < INVENTORY_CAPACITY; ++i) {
     if (inventory_[i] == nullptr) {
-        inventory_[i] = m;
-        return;
+      inventory_[i] = m;
+      return;
     }
   }
-  std::cout << "Character " << getName() << " slots are full. Materia " << m->getType() << " will be removed.\n";
+  std::cout << "Character " << getName() << " slots are full. Materia "
+            << m->getType() << " will be removed.\n";
   delete m;
 }
 
 void Character::unequip(int idx) {
-  if (idx < 0 || idx >= INVENTORY_CAPACITY)
-    return;
-  if (inventory_[idx] == nullptr)
-    return;
-  //do something;
+  if (idx < 0 || idx >= INVENTORY_CAPACITY) return;
+  if (inventory_[idx] == nullptr) return;
+  // do something;
 }
 
 void Character::use(int idx, ICharacter& target) {
-  if (idx < 0 || idx >= INVENTORY_CAPACITY)
-    return;
-  if (inventory_[idx] == nullptr)
-    return;
+  if (idx < 0 || idx >= INVENTORY_CAPACITY) return;
+  if (inventory_[idx] == nullptr) return;
   inventory_[idx]->use(target);
 }

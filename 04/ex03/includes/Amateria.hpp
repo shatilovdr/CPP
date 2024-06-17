@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 09:27:26 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/16 18:32:30 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:47:02 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class AMateria {
   virtual ~AMateria() = 0;
 
   std::string const& getType() const;
-  virtual AMateria*  clone() const = 0;
+  virtual AMateria*  clone() const           = 0;
   virtual void       use(ICharacter& target) = 0;
 
  protected:

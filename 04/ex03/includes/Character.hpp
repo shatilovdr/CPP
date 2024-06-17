@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 16:35:00 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/17 13:45:58 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:47:10 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 #define INVENTORY_CAPACITY 4
 
-class Character : public ICharacter{
+class Character : public ICharacter {
  public:
   Character() = delete;
   Character(std::string const& name);
@@ -34,7 +34,7 @@ class Character : public ICharacter{
 
  private:
   std::string name_;
-  AMateria* inventory_[INVENTORY_CAPACITY];
+  AMateria*   inventory_[INVENTORY_CAPACITY];
 };
 
 #endif

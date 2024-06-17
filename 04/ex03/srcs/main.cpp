@@ -6,16 +6,16 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 14:44:18 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/16 19:00:36 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:50:18 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Amateria.hpp"
 #include "Character.hpp"
 #include "Cure.hpp"
-#include "Ice.hpp"
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
+#include "Ice.hpp"
 #include "MateriaSource.hpp"
 
 int main() {
@@ -27,7 +27,7 @@ int main() {
 
   AMateria* tmp;
   tmp = src->createMateria("ice");
-  me->equip(tmp);                      
+  me->equip(tmp);
   tmp = src->createMateria("cure");
   me->equip(tmp);
 

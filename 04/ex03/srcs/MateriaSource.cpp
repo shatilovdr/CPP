@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 14:47:34 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/17 15:57:17 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:50:26 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,19 @@ MateriaSource::~MateriaSource() {
   }
 }
 
-void MateriaSource::learnMateria(AMateria *materia) {
+void MateriaSource::learnMateria(AMateria* materia) {
   for (int i = 0; i < SOURCE_CAPACITY; ++i) {
     if (materias_[i] == nullptr) {
-        materias_[i] = materia;
-        return;
+      materias_[i] = materia;
+      return;
     }
   }
-  std::cout << "MateriaSource is full. Materia " << materia->getType() << " will be removed.\n";
+  std::cout << "MateriaSource is full. Materia " << materia->getType()
+            << " will be removed.\n";
   delete materia;
 }
 
-AMateria* MateriaSource::createMateria(std::string const & type) {
+AMateria* MateriaSource::createMateria(std::string const& type) {
   int i;
   for (i = 0; i < SOURCE_CAPACITY; ++i) {
     if (materias_[i] == nullptr) {

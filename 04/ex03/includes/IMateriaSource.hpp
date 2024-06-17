@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 18:06:26 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/16 18:08:33 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 20:48:42 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 class IMateriaSource {
  public:
   virtual ~IMateriaSource() {}
-  virtual void learnMateria(AMateria*) = 0;
-  virtual AMateria* createMateria(std::string const & type) = 0;
+  virtual void      learnMateria(AMateria*)                = 0;
+  virtual AMateria* createMateria(std::string const& type) = 0;
 };
 
 #endif
