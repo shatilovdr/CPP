@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 14:13:45 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/05/31 16:15:47 by dshatilo         ###   ########.fr       */
+/*   Created: 2024/05/21 20:55:43 by dshatilo          #+#    #+#             */
+/*   Updated: 2024/06/17 10:53:59 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(){};
+Zombie*	newZombie(std::string name);
+void	randomChump(std::string name);
 
-Zombie::Zombie(std::string name) : _name(name){};
-
-void	Zombie::setName(const std::string& name)
+int main(void)
 {
-	_name = name;
-}
+	Zombie	erick = Zombie("Erick");
+	Zombie*	paul = newZombie("Paul");
+	randomChump("Max");
 
-void	Zombie::announce(void)
-{
-	std::cout << _name << ": BraiiiiiiinnnzzzZ...\n";
-}
-
-Zombie::~Zombie()
-{
-	std::cout << "Destroying " << _name << '\n';
+	erick.announce();
+	paul->announce();
+	delete paul;
+	return 0;
 }

@@ -2,8 +2,8 @@
 NAME			:=	brain
 
 # COMPILER
-CPP				:=	c++ -std=c++17
-FLAGS			:=	-Wall -Wextra -Werror -g 
+CPP				:=	c++ -std=c++11
+FLAGS			:=	-Wall -Wextra -Werror -Wpedantic
 
 # COLORS
 GREEN			:=	\033[32m
@@ -11,8 +11,8 @@ RED				:=	\033[41m
 EC				:=	\033[0m
 
 # SOURCE_FILES
-SRCS			:=	main.cpp 
-SRCS_PATH		:=	
+SRCS			:=	main.cpp
+SRCS_PATH		:=	srcs/
 
 # OBJECT_FILES
 OBJS_PATH		:=	objs/

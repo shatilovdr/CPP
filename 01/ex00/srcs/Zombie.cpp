@@ -6,20 +6,20 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:13:45 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/05/31 15:26:28 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/17 10:46:30 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) : name(name){};
+Zombie::Zombie(std::string name) : name_(name){};
 
 void	Zombie::announce(void)
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ...\n";
+	std::cout << name_ << ": BraiiiiiiinnnzzzZ...\n";
 }
 
 Zombie::~Zombie()
 {
-	std::cout << "Destroying " << name << '\n';
+	std::cout << "Destroying " << name_ << '\n';
 }
