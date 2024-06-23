@@ -18,18 +18,18 @@
 
 class Fixed {
  public:
-  Fixed();
-  Fixed(const Fixed& other);
-  ~Fixed();
-
-  int getRawBits(void) const;
-  void setRawBits(int const raw);
+  explicit Fixed();
+  explicit Fixed(const Fixed& other);
   Fixed& operator=(const Fixed& other);
 
+  ~Fixed();
+
+  int  getRawBits(void) const;
+  void setRawBits(int const raw);
+
  private:
- 
-  static const int _bit;
-  int _value;
+  static const int bit_;
+  int              value_;
 };
 
 #endif

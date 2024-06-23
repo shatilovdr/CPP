@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 12:37:54 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/10 19:19:02 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/23 10:10:13 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,15 @@
 
 const int Fixed::_bit = 8;
 
-Fixed::Fixed() : _value(0) {
-  // std::cout << "Default constructor called\n";
-};
+Fixed::Fixed() : _value(0) {}
 
-Fixed::Fixed(const int value) : _value(value << _bit) {
-  // std::cout << "Int constructor called\n";
-};
+Fixed::Fixed(const int value) : _value(value << _bit) {}
 
-Fixed::Fixed(const float value) : _value(std::roundf(value * (1 << _bit))) {
-  // std::cout << "Float constructor called\n";
-};
+Fixed::Fixed(const float value) : _value(std::roundf(value * (1 << _bit))) {}
 
-Fixed::Fixed(const Fixed& other) {
-  // std::cout << "Copy constructor called\n";
-  *this = other;
-};
+Fixed::Fixed(const Fixed& other) : _value(other._value) {}
 
-Fixed::~Fixed() {
-  // std::cout << "Destructor called\n";
-};
+Fixed::~Fixed() {}
 
 Fixed& Fixed::min(Fixed& a, Fixed& b) {
   return (a <= b ? a : b);
@@ -52,7 +41,6 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
 }
 
 int Fixed::getRawBits() const {
-  // std::cout << "getRawBits member function called\n";
   return _value;
 }
 
@@ -69,7 +57,7 @@ int Fixed::toInt(void) const {
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
-  // std::cout << "Copy assignment operator called\n";
+  if (this == &other) return *this;
   _value = other.getRawBits();
   return *this;
 }
