@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 12:51:44 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/09 13:27:11 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/24 13:17:49 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main() {
     Point a(3.3f, 2.1f);
     Point b(3.5f, 2.1f);
     Point c(3.6f, 2.1f);
-    Point p(3.7f, 2.1f);
+    Point p(3.4f, 2.1f);
     PrintResult(a, b, c, p);
   }
   std::cout << '\n';
@@ -45,10 +45,10 @@ int main() {
   std::cout << '\n';
   {
     std::cout << "/* Test-03: Right Triangle */\n";
-    Point a(1.0f, 1.0f);
-    Point b(5.0f, 1.0f);
-    Point c(1.0f, 4.0f);
-    Point p(3.0f, 2.0f);
+    Point a(0.0f, 0.0f);
+    Point b(5.0f, 0.0f);
+    Point c(0.0f, 5.0f);
+    Point p(2.0f, 2.0f);
     PrintResult(a, b, c, p);
   }
   std::cout << '\n';
@@ -64,9 +64,9 @@ int main() {
   {
     std::cout << "/* Test-05: Point on the Edge of the Triangle */\n";
     Point a(0.0f, 0.0f);
-    Point b(5.0f, 0.0f);
-    Point c(2.5f, 5.0f);
-    Point p(2.5f, 2.5f);
+    Point b(0.0f, 5.0f);
+    Point c(5.0f, 0.0f);
+    Point p(0.0f, 2.5f);
     PrintResult(a, b, c, p);
   }
   std::cout << '\n';
@@ -75,9 +75,10 @@ int main() {
     Point a(1.0f, 1.0f);
     Point b(5.0f, 1.0f);
     Point c(3.0f, 4.0f);
-    Point p(1.0f, 1.0f);
+    Point p(3.0f, 4.0f);
     PrintResult(a, b, c, p);
   }
+  std::cout << '\n';
   return 0;
 }
 
