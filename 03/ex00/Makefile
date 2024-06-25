@@ -3,7 +3,7 @@ NAME			:=	ClapTrap
 
 # COMPILER
 CPP				:=	c++ -std=c++17
-FLAGS			:=	-Wall -Wextra -Werror -g 
+FLAGS			:=	-Wall -Wextra -Werror -Wpedantic
 
 # COLORS
 GREEN			:=	\033[32m
@@ -13,7 +13,10 @@ EC				:=	\033[0m
 # SOURCE_FILES
 SRCS			:=	main.cpp \
 					ClapTrap.cpp
-SRCS_PATH		:=	
+SRCS_PATH		:=	srcs/
+
+# HEADER_FILES
+INCLUDES		:=	$(addprefix -I , includes)
 
 # OBJECT_FILES
 OBJS_PATH		:=	objs/
@@ -22,11 +25,11 @@ OBJS			:=	$(addprefix $(OBJS_PATH), $(SRCS:.cpp=.o))
 all: $(NAME)
 
 $(NAME): $(OBJS_PATH) $(OBJS)
-	@$(CPP) $(FLAGS)  $(OBJS) -o $(NAME)
+	@$(CPP) $(FLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) created successfully!$(EC)"
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.cpp
-	@$(CPP) $(FLAGS) -c $< -o $@
+	@$(CPP) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJS_PATH):
 	@mkdir -p $(OBJS_PATH)

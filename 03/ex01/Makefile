@@ -3,7 +3,7 @@ NAME			:=	ScavTrap
 
 # COMPILER
 CPP				:=	c++ -std=c++11
-FLAGS			:=	-Wall -Wextra -Werror -Wshadow
+FLAGS			:=	-Wall -Wextra -Werror -Wshadow -Wpedantic
 
 # COLORS
 GREEN			:=	\033[32m
@@ -14,7 +14,10 @@ EC				:=	\033[0m
 SRCS			:=	main.cpp \
 					ClapTrap.cpp \
 					ScavTrap.cpp
-SRCS_PATH		:=	
+SRCS_PATH		:=	srcs/
+
+# HEADER_FILES
+INCLUDES		:=	$(addprefix -I , includes)
 
 # OBJECT_FILES
 OBJS_PATH		:=	objs/
@@ -23,11 +26,11 @@ OBJS			:=	$(addprefix $(OBJS_PATH), $(SRCS:.cpp=.o))
 all: $(NAME)
 
 $(NAME): $(OBJS_PATH) $(OBJS)
-	@$(CPP) $(FLAGS)  $(OBJS) -o $(NAME)
+	@$(CPP) $(FLAGS) $(INCLUDES) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)$(NAME) created successfully!$(EC)"
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.cpp
-	@$(CPP) $(FLAGS) -c $< -o $@
+	@$(CPP) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJS_PATH):
 	@mkdir -p $(OBJS_PATH)

@@ -6,15 +6,18 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 12:51:44 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 10:52:11 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:54:59 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
   {
+    std::cout << "EX00_TESTS\n";
     ClapTrap mike("Mike");
     ClapTrap bob("Bob");
 
@@ -51,5 +54,56 @@ int main() {
     mike.takeDamage(9);
   }
   std::cout << '\n';
+  
+  {
+    std::cout << "\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
+    std::cout << "EX01_TESTS\n";
+    ClapTrap mike("Mike");
+    ClapTrap bob("Bob");
+
+    bob.attack("Mike");
+    mike.takeDamage(3);
+    mike.beRepaired(4);
+  }
+  std::cout << '\n';
+  {
+    ScavTrap mike("Mike");
+    ScavTrap bob("Bob");
+
+    bob.attack("Mike");
+    mike.takeDamage(20);
+    mike.beRepaired(4);
+    mike.guardGate();
+  }
+  {
+    std::cout << "\n\n\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n";
+    std::cout << "EX02_TESTS\n";
+    ClapTrap mike("Mike");
+    ClapTrap bob("Bob");
+
+    bob.attack("Mike");
+    mike.takeDamage(3);
+    mike.beRepaired(4);
+  }
+  std::cout << '\n';
+  {
+    ScavTrap mike("Mike");
+    ScavTrap bob("Bob");
+
+    bob.attack("Mike");
+    mike.takeDamage(20);
+    mike.beRepaired(25);
+    mike.guardGate();
+  }
+  std::cout << '\n';
+  {
+    FragTrap mike("Mike");
+    FragTrap bob("Bob");
+
+    bob.attack("Mike");
+    mike.takeDamage(30);
+    mike.beRepaired(35);
+    mike.highFivesGuys();
+  }
   return 0;
 }
