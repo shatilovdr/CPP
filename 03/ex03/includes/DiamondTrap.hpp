@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:57:54 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 19:03:12 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/25 21:20:20 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ class DiamondTrap : public FragTrap, public ScavTrap {
   ~DiamondTrap();
 
   void attack(const std::string& target);
-  void takeDamage(unsigned int amount);
-  void beRepaired(unsigned int amount);
   void whoAmI();
 
  private:

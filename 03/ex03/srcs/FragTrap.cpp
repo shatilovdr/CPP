@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 08:03:32 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/11 18:47:29 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/25 21:23:20 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include <iostream>
 #include <limits>
 
-
-FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 50, 20) {
+FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30) {
   std::cout << "FragTrap " << name_ << " constructor with parameter called\n";
 }
 
@@ -40,28 +39,6 @@ void FragTrap::attack(const std::string& target) {
   std::cout << "FragTrap " << name_ << " attacks " << target << ", causing "
             << attack_dmg_ << " points of damage!\n";
   --hit_pnt_;
-}
-
-void FragTrap::takeDamage(unsigned int amount) {
-  if (IsExhausted("FragTrap ") == true) {
-    return;
-  }
-  amount = hit_pnt_ < amount ? hit_pnt_ : amount;
-  std::cout << "FragTrap " << name_ << " takes " << amount
-            << " points of damage!\n";
-  hit_pnt_ -= amount;
-}
-
-void FragTrap::beRepaired(unsigned int amount) {
-  if (IsExhausted("FragTrap ") == true) {
-    return;
-  }
-  unsigned int max = std::numeric_limits<unsigned int>::max();
-  amount = max - hit_pnt_ > amount ? amount : max - hit_pnt_;
-  std::cout << "FragTrap " << name_ << " repairs, getting " << amount
-            << " points of damage!\n";
-  --energy_pnt_;
-  hit_pnt_ += amount;
 }
 
 void FragTrap::highFivesGuys() {
