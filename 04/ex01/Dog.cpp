@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 14:06:29 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/15 17:58:42 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/25 23:38:12 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Dog& Dog::operator=(const Dog& other) {
     return *this;
   }
   Animal::operator=(other);
+  *brain_ = *other.brain_;
   return *this;
 }
 
@@ -41,7 +42,7 @@ void Dog::makeSound() const {
 
 void Dog::AddIdea(const std::string& idea) const {
   if (brain_->AddIdea(idea) == false) {
-    std::cout << "To many ideas for one cat!\n";
+    std::cout << "To many ideas for one dog!\n";
   }
 }
 
