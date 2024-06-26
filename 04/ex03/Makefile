@@ -3,7 +3,8 @@ NAME			:=	recap
 
 # COMPILER
 CPP				:=	c++ -std=c++11
-FLAGS			:=	-Wall -Wextra -Werror -Wshadow -Wno-shadow
+FLAGS			:=	-Wall -Wextra -Werror -Wshadow -Wno-shadow -Wpedantic
+
 # COLORS
 GREEN			:=	\033[32m
 RED				:=	\033[41m
@@ -15,7 +16,8 @@ SRCS			:=	main.cpp \
 					Cure.cpp \
 					Ice.cpp \
 					Character.cpp \
-					MateriaSource.cpp
+					MateriaSource.cpp \
+					LinkedList.cpp
 SRCS_PATH		:=	srcs/
 
 # HEADER_FILES

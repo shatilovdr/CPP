@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 16:35:00 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/06/17 20:47:10 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/06/26 09:57:23 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include "ICharacter.hpp"
+#include "LinkedList.hpp"
 
 #define INVENTORY_CAPACITY 4
 
@@ -33,8 +34,9 @@ class Character : public ICharacter {
   void               use(int idx, ICharacter& target) override;
 
  private:
-  std::string name_;
-  AMateria*   inventory_[INVENTORY_CAPACITY];
+  std::string           name_;
+  AMateria*             inventory_[INVENTORY_CAPACITY];
+  LinkedList<AMateria>* unequiped_;
 };
 
 #endif
