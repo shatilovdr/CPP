@@ -12,7 +12,8 @@ EC				:=	\033[0m
 
 # SOURCE_FILES
 SRCS			:=	main.cpp \
-							Bureaucrat.cpp
+							Bureaucrat.cpp \
+							Form.cpp
 SRCS_PATH		:=	srcs/
 
 # HEADER_FILES

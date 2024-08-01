@@ -6,12 +6,13 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:02:53 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/01 21:19:00 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/01 23:37:59 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 void test0();
 void test1();
