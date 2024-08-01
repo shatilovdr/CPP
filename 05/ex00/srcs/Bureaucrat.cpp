@@ -6,21 +6,20 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:22:40 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/01 18:19:49 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/01 21:09:46 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade): name_(name), grade_(grade) {
-  if (grade_ < 1)
-    throw Bureaucrat::GradeTooHighException();
-  if (grade_ > 150)
-    throw Bureaucrat::GradeTooLowException();
+Bureaucrat::Bureaucrat(std::string name, int grade)
+    : name_(name), grade_(grade) {
+  if (grade_ < 1) throw Bureaucrat::GradeTooHighException();
+  if (grade_ > 150) throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other): name_(other.name_), grade_(other.grade_) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& other)
+    : name_(other.name_), grade_(other.grade_) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
   if (&other == this) {
@@ -30,16 +29,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
   return *this;
 }
 
-Bureaucrat::~Bureaucrat() {
-  std::cout << "Bureaucrat destructor called" << std::endl;
-}
-
 const std::string& Bureaucrat::getName() const {
-    return name_;
+  return name_;
 }
 
 const int& Bureaucrat::getGrade() const {
-    return grade_;
+  return grade_;
 }
 
 void Bureaucrat::promote() {
@@ -57,6 +52,6 @@ void Bureaucrat::demote() {
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& obj) {
-  out << obj.getName() << ">, bureaucrat grade " << obj.getGrade() << '\n';
+  out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << '\n';
   return out;
 }
