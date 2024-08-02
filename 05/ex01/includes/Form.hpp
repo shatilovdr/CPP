@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:28:03 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/01 23:34:53 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/02 10:56:48 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <string>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form {
  public:
@@ -32,7 +35,7 @@ class Form {
   };
   Form() = delete;
   Form(std::string name, int sign_grade, int execute_grade);
-  Form(const Form& other) = default;
+  Form(const Form& other)            = default;
   Form& operator=(const Form& other) = delete;
 
   ~Form() = default;
@@ -41,7 +44,7 @@ class Form {
   bool        getSignSatus() const;
   int         getSignGrade() const;
   int         getExecuteGrade() const;
-
+  void        beSigned(Bureaucrat& b);
 
  private:
   const std::string name_;

@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:22:40 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/01 23:37:29 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/02 10:53:45 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,6 @@ Form::Form(std::string name, int sign_grade, int execute_grade)
   }
 }
 
-// Form::Form(const Form& other)
-//     : name_(other.name_),
-//       sign_status_(other.sign_status_),
-//       sign_grade_(other.sign_grade_),
-//       execute_grade_(other.execute_grade_) {}
-
 std::string Form::getName() const {
   return name_;
 }
@@ -47,9 +41,17 @@ int Form::getExecuteGrade() const {
   return execute_grade_;
 }
 
+void Form::beSigned(Bureaucrat& b) {
+  if (b.getGrade() > sign_grade_) {
+    throw Form::GradeTooLowException();
+  }
+  sign_status_ = true;
+}
+
 std::ostream& operator<<(std::ostream& out, const Form& obj) {
-  out << obj.getName() << ", sign status: " << obj.getSignSatus()
-      << ", sign grade: " << obj.getSignGrade()
-      << ", execute grade: " << obj.getExecuteGrade() << '\n';
+  std::cout << obj.getName()
+            << ", sign status: " << (obj.getSignSatus() ? "true" : "false")
+            << ", sign grade: " << obj.getSignGrade()
+            << ", execute grade: " << obj.getExecuteGrade() << '\n';
   return out;
 }

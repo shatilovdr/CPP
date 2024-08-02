@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 14:07:04 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/01 23:24:12 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/02 10:42:47 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <string>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat {
  public:
@@ -41,6 +44,7 @@ class Bureaucrat {
   int         getGrade() const;
   void        promote();
   void        demote();
+  void        signForm(Form& f);
 
  private:
   const std::string name_;
