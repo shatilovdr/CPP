@@ -15,7 +15,8 @@ SRCS			:=	main.cpp \
 							Bureaucrat.cpp \
 							AForm.cpp \
 							ShrubberyCreationForm.cpp \
-							RobotomyRequestForm.cpp
+							RobotomyRequestForm.cpp \
+							PresidentialPardonForm.cpp
 SRCS_PATH		:=	srcs/
 
 # HEADER_FILES
