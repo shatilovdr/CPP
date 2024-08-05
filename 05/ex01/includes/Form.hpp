@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:28:03 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/02 10:56:48 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/05 12:32:26 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Form {
   bool        getSignSatus() const;
   int         getSignGrade() const;
   int         getExecuteGrade() const;
-  void        beSigned(Bureaucrat& b);
+  void        beSigned(const Bureaucrat& b);
 
  private:
   const std::string name_;
