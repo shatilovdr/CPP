@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:06:07 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 16:38:43 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:38:50 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
     : AForm("ShrubberyCreationForm", 145, 137, target.append("_shrubbery")) {}
 
 
-void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
-  verifyExecutionConditions(executor);
+void ShrubberyCreationForm::doExecution() const {
   std::ofstream	out(getTarget());
   out << getTrees();
   out.close();;

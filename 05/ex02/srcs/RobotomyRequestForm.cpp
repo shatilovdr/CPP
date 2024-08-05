@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:06:07 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 16:47:52 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:38:41 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target)
     : AForm("RobotomyRequestForm", 72, 45, target) {}
 
 
-void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
-  verifyExecutionConditions(executor);
+void RobotomyRequestForm::doExecution() const {
   static bool  flag = false;
   std::cout << "* DRILLING NOISES *\n";
   if (!flag) {

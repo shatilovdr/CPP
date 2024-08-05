@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:28:03 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 16:22:51 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:36:46 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ class AForm {
   int          getExecuteGrade() const;
   std::string  getTarget() const;
   void         beSigned(const Bureaucrat& b);
-  virtual void execute(const Bureaucrat& executor) const = 0;
+  void execute(const Bureaucrat& executor) const;
 
  protected:
-  void         verifyExecutionConditions(const Bureaucrat& b) const;
+  virtual void         doExecution() const = 0;
 
  private:
   const std::string name_;

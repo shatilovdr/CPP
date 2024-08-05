@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 11:28:36 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 17:09:47 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/05 17:38:04 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 
   ~PresidentialPardonForm() override = default;
 
-  void execute(const Bureaucrat& executor) const override;
+  void doExecution() const override;
 };
 
 #endif
