@@ -14,7 +14,8 @@ EC				:=	\033[0m
 SRCS			:=	main.cpp \
 							Bureaucrat.cpp \
 							AForm.cpp \
-							ShrubberyCreationForm.cpp
+							ShrubberyCreationForm.cpp \
+							RobotomyRequestForm.cpp
 SRCS_PATH		:=	srcs/
 
 # HEADER_FILES

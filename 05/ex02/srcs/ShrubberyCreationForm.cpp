@@ -6,14 +6,14 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:06:07 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 16:13:21 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:38:43 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include "../includes/ShrubberyCreationForm.hpp"
 
-std::string& getTree();
+std::string& getTrees();
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
     : AForm("ShrubberyCreationForm", 145, 137, target.append("_shrubbery")) {}
@@ -22,12 +22,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 void ShrubberyCreationForm::execute(const Bureaucrat& executor) const {
   verifyExecutionConditions(executor);
   std::ofstream	out(getTarget());
-  out << getTree();
+  out << getTrees();
   out.close();;
 }
 
-std::string& getTree() {
-  static std::string tree = 
+std::string& getTrees() {
+  static std::string trees = 
   "              * *                           * *                           * *             \n"
   "           *    *  *                     *    *  *                     *    *  *          \n"
   "      *  *    *     *  *            *  *    *     *  *            *  *    *     *  *      \n"
@@ -45,5 +45,5 @@ std::string& getTree() {
   "              ;###                          ;###                          ;###            \n"
   "            ,####.                        ,####.                        ,####.            \n"
   "~~~~~~~~~~~.######.~~~~~~~~~~~~~~~~~~~~~~.######.~~~~~~~~~~~~~~~~~~~~~~.######.~~~~~~~~~~~\n";
-  return tree;
+  return trees;
 }
