@@ -13,7 +13,8 @@ EC				:=	\033[0m
 # SOURCE_FILES
 SRCS			:=	main.cpp \
 							Bureaucrat.cpp \
-							AForm.cpp
+							AForm.cpp \
+							ShrubberyCreationForm.cpp
 SRCS_PATH		:=	srcs/
 
 # HEADER_FILES

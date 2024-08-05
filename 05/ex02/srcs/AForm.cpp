@@ -6,17 +6,18 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:06:07 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/02 13:06:09 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/05 15:01:02 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/AForm.hpp"
+#include "AForm.hpp"
 
-AForm::AForm(std::string name, int sign_grade, int execute_grade)
+AForm::AForm(std::string name, int sign_grade, int execute_grade, std::string target)
     : name_(name),
       sign_status_(false),
       sign_grade_(sign_grade),
-      execute_grade_(execute_grade) {
+      execute_grade_(execute_grade),
+      target_(target) {
   if (sign_grade_ < 1 || execute_grade_ < 1) {
     throw AForm::GradeTooHighException();
   }
@@ -41,11 +42,24 @@ int AForm::getExecuteGrade() const {
   return execute_grade_;
 }
 
-void AForm::beSigned(Bureaucrat& b) {
+std::string  AForm::getTarget() const {
+  return target_;
+}
+
+void AForm::beSigned(const Bureaucrat& b) {
   if (b.getGrade() > sign_grade_) {
     throw AForm::GradeTooLowException();
   }
   sign_status_ = true;
+}
+
+void AForm::verifyExecutionConditions(const Bureaucrat& b) const {
+  if (sign_status_ == false) {
+    throw AForm::FormNotSignedException();
+  }
+  if (b.getGrade() > execute_grade_) {
+    throw AForm::GradeTooLowException();
+  }
 }
 
 std::ostream& operator<<(std::ostream& out, const AForm& obj) {

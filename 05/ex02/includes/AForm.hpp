@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:28:03 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/02 13:07:10 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/05 16:22:51 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define FORM_HPP_
 
 #include <iostream>
-#include <string>
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
@@ -23,34 +22,46 @@ class AForm {
  public:
   class GradeTooHighException : public std::exception {
    public:
-    const char* what() const noexcept {
-      return "grade is too high!\n";
+    const char* what() const noexcept override {
+      return "grade is too high!";
     }
   };
   class GradeTooLowException : public std::exception {
    public:
-    const char* what() const noexcept {
-      return "grade is too low!\n";
+    const char* what() const noexcept override {
+      return "grade is too low!";
+    }
+  };
+  class FormNotSignedException : public std::exception {
+   public:
+    const char* what() const noexcept override {
+      return "form is not signed!";
     }
   };
   AForm() = delete;
-  AForm(std::string name, int sign_grade, int execute_grade);
+  AForm(std::string name, int sign_grade, int execute_grade, std::string target);
   AForm(const AForm& other)            = default;
   AForm& operator=(const AForm& other) = delete;
 
-  ~AForm() = default;
+  virtual ~AForm() = default;
 
-  std::string getName() const;
-  bool        getSignSatus() const;
-  int         getSignGrade() const;
-  int         getExecuteGrade() const;
-  void        beSigned(Bureaucrat& b);
+  std::string  getName() const;
+  bool         getSignSatus() const;
+  int          getSignGrade() const;
+  int          getExecuteGrade() const;
+  std::string  getTarget() const;
+  void         beSigned(const Bureaucrat& b);
+  virtual void execute(const Bureaucrat& executor) const = 0;
+
+ protected:
+  void         verifyExecutionConditions(const Bureaucrat& b) const;
 
  private:
   const std::string name_;
   bool              sign_status_;
   const int         sign_grade_;
   const int         execute_grade_;
+  const std::string target_;
 };
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj);
