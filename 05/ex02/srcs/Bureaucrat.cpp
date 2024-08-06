@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:22:40 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 16:22:42 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:39:06 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,20 @@ void Bureaucrat::demote() {
 
 void Bureaucrat::signForm(AForm& f) {
   try {
-    f.beSigned(*this);
+    if (f.beSigned(*this)) {
+      std::cout << name_ << " signed " << f.getName() << '\n';
+    } else {
+      std::cout << name_ << " couldn’t sign " << f.getName()
+                << " because the form is already signed.\n";
+    }
   } catch (AForm::GradeTooLowException e) {
     std::cout << name_ << " couldn’t sign " << f.getName() << " because "
-              << e.what() << '\n';
+              << e.what();
     return;
   }
-  std::cout << name_ << " signed " << f.getName() << '\n';
 }
 
-void Bureaucrat::executeForm(AForm const & form) {
+void Bureaucrat::executeForm(AForm const& form) {
   try {
     form.execute(*this);
   } catch (std::exception& e) {

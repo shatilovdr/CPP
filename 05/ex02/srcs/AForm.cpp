@@ -6,13 +6,16 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:06:07 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 17:37:15 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:37:52 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm(std::string name, int sign_grade, int execute_grade, std::string target)
+AForm::AForm(std::string name,
+             int         sign_grade,
+             int         execute_grade,
+             std::string target)
     : name_(name),
       sign_status_(false),
       sign_grade_(sign_grade),
@@ -42,15 +45,19 @@ int AForm::getExecuteGrade() const {
   return execute_grade_;
 }
 
-std::string  AForm::getTarget() const {
+std::string AForm::getTarget() const {
   return target_;
 }
 
-void AForm::beSigned(const Bureaucrat& b) {
+bool AForm::beSigned(const Bureaucrat& b) {
   if (b.getGrade() > sign_grade_) {
     throw AForm::GradeTooLowException();
   }
+  if (sign_status_ == true) {
+    return false;
+  }
   sign_status_ = true;
+  return true;
 }
 
 void AForm::execute(const Bureaucrat& b) const {

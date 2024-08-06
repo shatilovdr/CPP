@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:22:40 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 12:32:32 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 13:48:19 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,15 @@ int Form::getExecuteGrade() const {
   return execute_grade_;
 }
 
-void Form::beSigned(const Bureaucrat& b) {
+bool Form::beSigned(const Bureaucrat& b) {
   if (b.getGrade() > sign_grade_) {
     throw Form::GradeTooLowException();
   }
+  if (sign_status_ == true) {
+    return false;
+  }
   sign_status_ = true;
+  return true;
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& obj) {

@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:28:03 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 17:36:46 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 14:36:30 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,25 @@ class AForm {
     }
   };
   AForm() = delete;
-  AForm(std::string name, int sign_grade, int execute_grade, std::string target);
+  AForm(std::string name,
+        int         sign_grade,
+        int         execute_grade,
+        std::string target);
   AForm(const AForm& other)            = default;
   AForm& operator=(const AForm& other) = delete;
 
   virtual ~AForm() = default;
 
-  std::string  getName() const;
-  bool         getSignSatus() const;
-  int          getSignGrade() const;
-  int          getExecuteGrade() const;
-  std::string  getTarget() const;
-  void         beSigned(const Bureaucrat& b);
-  void execute(const Bureaucrat& executor) const;
+  std::string getName() const;
+  bool        getSignSatus() const;
+  int         getSignGrade() const;
+  int         getExecuteGrade() const;
+  std::string getTarget() const;
+  bool        beSigned(const Bureaucrat& b);
+  void        execute(const Bureaucrat& executor) const;
 
  protected:
-  virtual void         doExecution() const = 0;
+  virtual void doExecution() const = 0;
 
  private:
   const std::string name_;
