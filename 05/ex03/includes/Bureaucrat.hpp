@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 14:07:04 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 15:01:57 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:25:02 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Bureaucrat {
   void        promote();
   void        demote();
   void        signForm(AForm& f);
-  void        executeForm(AForm const & form);
+  void        executeForm(AForm const& form);
 
  private:
   const std::string name_;
