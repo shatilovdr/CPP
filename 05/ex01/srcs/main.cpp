@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:02:53 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 13:53:49 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:59:21 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void test1() {
   } catch (std::exception& e) {
     std::cout << e.what();
   }
-  std::cout << form;
+  std::cout << form << '\n';
 }
 
 void test2() {
@@ -58,5 +58,5 @@ void test2() {
 
   b.signForm(form);
   t.signForm(form);
-  std::cout << form;
+  std::cout << form << '\n';
 }

@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:06:07 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 14:37:52 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:45:54 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ std::ostream& operator<<(std::ostream& out, const AForm& obj) {
   std::cout << obj.getName()
             << ", sign status: " << (obj.getSignSatus() ? "true" : "false")
             << ", sign grade: " << obj.getSignGrade()
-            << ", execute grade: " << obj.getExecuteGrade() << '\n';
+            << ", execute grade: " << obj.getExecuteGrade();
   return out;
 }

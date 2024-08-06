@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:02:53 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/02 10:58:10 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:57:54 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ void test2() {
   try {
     Bureaucrat b("Bob", 3);
     b.promote();
-    std::cout << b;
+    std::cout << b << '\n';
     b.promote();
-    std::cout << b;
+    std::cout << b << '\n';
     b.promote();
-    std::cout << b;
+    std::cout << b << '\n';
   } catch (std::exception& e) {
     std::cout << e.what();
   }
@@ -67,9 +67,9 @@ void test3() {
   try {
     Bureaucrat b("Max", 149);
     b.demote();
-    std::cout << b;
+    std::cout << b << '\n';
     b.demote();
-    std::cout << b;
+    std::cout << b << '\n';
   } catch (std::exception& e) {
     std::cout << e.what();
   }
@@ -79,7 +79,7 @@ void test4() {
   std::cout << "\n\n--TEST-04--\n";
   try {
     const Bureaucrat b("Robert", 149);
-    std::cout << b;
+    std::cout << b << '\n';
   } catch (std::exception& e) {
     std::cout << e.what();
   }
@@ -88,6 +88,6 @@ void test4() {
 void test5() {
   std::cout << "\n\n--TEST-05--\n";
   Bureaucrat b("Sam", 1);
-  std::cout << b;
+  std::cout << b << '\n';
   b.promote();
 }
