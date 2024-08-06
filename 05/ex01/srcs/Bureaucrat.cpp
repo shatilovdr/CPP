@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:22:40 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 13:54:20 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:00:51 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade)
     throw Bureaucrat::GradeTooLowException();
   }
 }
-
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
-    : name_(other.name_), grade_(other.grade_) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) & {
   if (&other == this) {

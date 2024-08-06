@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 14:07:04 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/02 10:42:47 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:00:40 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Bureaucrat {
   };
   Bureaucrat() = delete;
   Bureaucrat(std::string name, int grade);
-  Bureaucrat(const Bureaucrat& other);
+  Bureaucrat(const Bureaucrat& other) = default;
   Bureaucrat& operator=(const Bureaucrat& other) &;
 
   ~Bureaucrat() = default;
