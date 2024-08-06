@@ -6,11 +6,11 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:22:40 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 16:23:46 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:30:41 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Intern.hpp"
+#include "Intern.hpp"
 
 AForm* Intern::makeForm(const std::string& name, const std::string& target) {
   AForm*                   out;

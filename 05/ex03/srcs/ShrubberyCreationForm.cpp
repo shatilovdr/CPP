@@ -6,11 +6,11 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:06:07 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 16:26:50 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:31:01 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ShrubberyCreationForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
 std::string& getTrees();

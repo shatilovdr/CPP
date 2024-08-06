@@ -6,17 +6,17 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 11:28:36 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/05 17:38:31 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:29:55 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "AForm.hpp"
 
 #ifndef ROBOTOMY_REQUEST_FORM_HPP_
 #define ROBOTOMY_REQUEST_FORM_HPP_
 
+#include "AForm.hpp"
+
 class RobotomyRequestForm : public AForm {
-public:
+ public:
   RobotomyRequestForm() = delete;
   RobotomyRequestForm(std::string target);
   RobotomyRequestForm(const RobotomyRequestForm& other)            = default;

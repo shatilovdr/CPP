@@ -6,17 +6,17 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 21:02:53 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 16:24:15 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:30:47 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "../includes/AForm.hpp"
-#include "../includes/Bureaucrat.hpp"
-#include "../includes/Intern.hpp"
-#include "../includes/PresidentialPardonForm.hpp"
-#include "../includes/RobotomyRequestForm.hpp"
-#include "../includes/ShrubberyCreationForm.hpp"
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include "Intern.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 void test0();
 void test1();

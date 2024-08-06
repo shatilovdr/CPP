@@ -6,11 +6,11 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 13:22:40 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 15:54:04 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:30:35 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade)
     : name_(name), grade_(grade) {

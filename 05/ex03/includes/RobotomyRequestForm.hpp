@@ -6,14 +6,14 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 11:28:36 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 16:25:08 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/06 16:32:50 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
-
 #ifndef ROBOTOMY_REQUEST_FORM_HPP_
-  #define ROBOTOMY_REQUEST_FORM_HPP_
+#define ROBOTOMY_REQUEST_FORM_HPP_
+
+#include "AForm.hpp"
 
 class RobotomyRequestForm : public AForm {
  public:
