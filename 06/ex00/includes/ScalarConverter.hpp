@@ -6,44 +6,41 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:20:04 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/07 16:57:13 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/08 10:15:57 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SCALAR_CONVERTER_HPP_
 #define SCALAR_CONVERTER_HPP_
 
-
+#include <iomanip>
 #include <iostream>
-#include <string>
+#include <cmath>
+#include <limits>
 #include <regex>
-
-typedef struct s_types
-{
-  char   c;
-  int    i;
-  float  f;
-  double d;
-} t_types;
-
+#include <string>
 
 class ScalarConverter {
  public:
-  ScalarConverter() = delete;
-  ScalarConverter(const ScalarConverter& other) = delete;
-  ScalarConverter& operator=(const ScalarConverter& other) = delete;
-
-  ~ScalarConverter() = delete;
-
   static void convert(const std::string& str);
 
  private:
+  ScalarConverter()                                        = default;
+  ScalarConverter(const ScalarConverter& other)            = default;
+  ScalarConverter& operator=(const ScalarConverter& other) = default;
+
+  ~ScalarConverter() = default;
+
   static void convertFromInt(const std::string& str);
   static void convertFromChar(const std::string& str);
   static void convertFromFloat(const std::string& str);
   static void convertFromDouble(const std::string& str);
-  static void printValues(const t_types& types);
+  static void printValues();
+
+  static char c;
+  static int i;
+  static float f;
+  static double d;
 };
 
 #endif

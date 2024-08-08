@@ -6,27 +6,30 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:20:12 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/07 17:23:18 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/08 10:09:20 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
+char ScalarConverter::c;
+int ScalarConverter::i;
+float ScalarConverter::f;
+double ScalarConverter::d;
 
 void ScalarConverter::convert(const std::string& str) {
-  std::regex int_ ("\\d+"); //add negative numbers support!
-  std::regex float_ ("\\d+\\.\\d*f|\\d*\\.\\d+f");
-  std::regex double_ ("\\d+\\.\\d*|\\d*\\.\\d+");
-
-  if (std::regex_match (str,int_)) {
+  std::regex int_("[-\\+]?\\d+");
+  std::regex float_("[-\\+]?\\d+\\.\\d*f|\\d*\\.\\d+f");
+  std::regex double_("[-\\+]?\\d+\\.\\d*|\\d*\\.\\d+");
+  if (std::regex_match(str, int_)) {
     convertFromInt(str);
   } else if (str.length() == 1) {
-      convertFromChar(str);
-  } else if (str == "inff" || str == "+inff" || str == "-inff"
-      || std::regex_match (str,float_)) {
+    convertFromChar(str);
+  } else if (str == "inff" || str == "+inff" || str == "-inff" ||
+             std::regex_match(str, float_)) {
     convertFromFloat(str);
-  } else if (str == "inf" || str == "+inf" || str == "-inf"
-      || std::regex_match (str,double_)) {
+  } else if (str == "inf" || str == "+inf" || str == "-inf" ||
+             std::regex_match(str, double_)) {
     convertFromDouble(str);
   } else {
     std::cout << "char: impossible\n"
@@ -36,55 +39,71 @@ void ScalarConverter::convert(const std::string& str) {
   }
 }
 
-
 void ScalarConverter::convertFromInt(const std::string& str) {
-  t_types types;
-
   try {
-    types.i = std::stoi(str);
-    types.c = types.i >=0 && types.i <= 127 ? static_cast<char>(types.i) : -1; //add char behavior
-    types.f = types.i;
-    types.d = types.i;
-    printValues(types);
-  } catch (std::out_of_range& e ) {
+    i = std::stoi(str);
+    c = i >= 0 && i <= 127 ? static_cast<char>(i) : -1;
+    f = i;
+    d = i;
+    printValues();
+  } catch (std::out_of_range& e) {
     convertFromFloat(str);
   }
 }
 
 void ScalarConverter::convertFromChar(const std::string& str) {
-    t_types types;
-
-    types.c = str[0];
-    types.i = types.c;
-    types.f = types.c;
-    types.d = types.c;
-    printValues(types);
+  c = str[0];
+  i = c;
+  f = c;
+  d = c;
+  printValues();
 }
 
 void ScalarConverter::convertFromFloat(const std::string& str) {
-  t_types types;
-
   try {
-    types.f = std::stof(str);
-    types.c = static_cast<char>(types.i);
-    types.f = types.i;
-    types.d = types.i;
-    printValues(types);
-  } catch (std::out_of_range& e ) {
+    f = std::stof(str);
+    d = f;
+    if ((d > 0.0 && d - std::numeric_limits<int>::max() >= 1.0) ||
+        (d < 0.0 && d - std::numeric_limits<int>::min() <= -1.0)) {
+      c = -1;
+      i = 1001;
+    } else {
+      i = static_cast<int>(f);
+      c =
+          i >= 0 && i <= 127 ? static_cast<char>(i) : -1;
+    }
+    printValues();
+  } catch (std::out_of_range& e) {
     convertFromDouble(str);
   }
 }
 
 void ScalarConverter::convertFromDouble(const std::string& str) {
-  t_types types;
-
   try {
-    types.f = std::stof(str);
-    types.c = static_cast<char>(types.i);
-    types.f = types.i;
-    types.d = types.i;
-    printValues(types);
-  } catch (std::out_of_range& e ) {
+    d = std::stod(str);
+    if (!std::isinf(d) &&
+            ((d > 0.0 &&
+             d - std::numeric_limits<float>::max() >= 1.0) ||
+        (d < 0.0 &&
+         d - std::numeric_limits<float>::lowest() <= -1.0))) {
+      c = -1;
+      i = 1000;
+      f = std::numeric_limits<float>::max();
+    } else if ((d > 0.0f &&
+                d - std::numeric_limits<int>::max() >= 1.0) ||
+               (d < 0.0f &&
+                d - std::numeric_limits<int>::min() <= -1.0)) {
+      c = -1;
+      i = 1000;
+      f = static_cast<float>(d);
+    } else {
+      i = static_cast<int>(d);
+      f = static_cast<float>(d);
+      c =
+          i >= 0 && i <= 127 ? static_cast<char>(i) : -1;
+    }
+    printValues();
+  } catch (std::out_of_range& e) {
     std::cout << "char: impossible\n"
               << "int: impossible\n"
               << "float: nanf\n"
@@ -92,13 +111,31 @@ void ScalarConverter::convertFromDouble(const std::string& str) {
   }
 }
 
-void ScalarConverter::printValues(const t_types& types) {
-  if (std::isprint(types.c)) {
-    std::cout << "char: " << types.c << '\n';
+void ScalarConverter::printValues() {
+  if (std::isprint(c)) {
+    std::cout << "char: '" << c << "'\n";
   } else {
-    std::cout << "char: " << (types.i >= 0 && types.i <= 127 ? "Non displayable" : "impossible")  << '\n';
+    std::cout << "char: "
+              << (i >= 0 && i <= 127 ? "Non displayable"
+                                                 : "impossible")
+              << '\n';
   }
-  std::cout << "int: " << types.i << '\n';
-  std::cout << "float: " << types.f << '\n';
-  std::cout << "double: " << types.d << '\n';
+  if ((d > 0.0 && d - std::numeric_limits<int>::max() >= 1.0) ||
+      (d < 0.0 && d - std::numeric_limits<int>::min() <= -1.0)) {
+    std::cout << "int: impossible\n";
+  } else {
+    std::cout << "int: " << i << '\n';
+  }
+  if (!std::isinf(d) &&
+          ((d > 0.0 &&
+           d - std::numeric_limits<float>::max() >= 1.0) ||
+      (d < 0.0 &&
+       d - std::numeric_limits<float>::lowest() <= -1.0))) {
+    std::cout << "float: impossible\n";
+  } else {
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f
+              << "f\n";
+  }
+  std::cout << "double: " << std::fixed << std::setprecision(1) << d
+            << '\n';
 }
