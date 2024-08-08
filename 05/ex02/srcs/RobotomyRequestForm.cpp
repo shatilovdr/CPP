@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 13:06:07 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/06 16:31:42 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/08 15:20:44 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void RobotomyRequestForm::doExecution() const {
     flag = true;
   } else {
     std::cout << getTarget() << " has failed to robotomize.\n";
-    flag = true;
+    flag = false;
   }
 }
