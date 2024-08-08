@@ -6,16 +6,16 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:20:04 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/08 10:15:57 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/08 22:39:37 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALAR_CONVERTER_HPP_
 #define SCALAR_CONVERTER_HPP_
 
+#include <cmath>
 #include <iomanip>
 #include <iostream>
-#include <cmath>
 #include <limits>
 #include <regex>
 #include <string>
@@ -37,9 +37,9 @@ class ScalarConverter {
   static void convertFromDouble(const std::string& str);
   static void printValues();
 
-  static char c;
-  static int i;
-  static float f;
+  static char   c;
+  static int    i;
+  static float  f;
   static double d;
 };
 

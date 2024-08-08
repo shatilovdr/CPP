@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 09:50:58 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/08 17:21:57 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/08 22:42:13 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #include "Base.hpp"
 
-class C : public Base {
-
-};
+class C : public Base {};
 
 #endif
