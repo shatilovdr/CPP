@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 11:20:12 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/08 10:09:20 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/08 16:59:41 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,9 @@ void ScalarConverter::convert(const std::string& str) {
              std::regex_match(str, double_)) {
     convertFromDouble(str);
   } else {
-    std::cout << "char: impossible\n"
-              << "int: impossible\n"
-              << "float: nanf\n"
-              << "double: nan\n";
+    std::cout << "char: impossible\n" << "int: impossible\n";
+    std::cout << (str == "nan" ? "float: nanf\ndouble: nan\n" 
+                               : "float: impossible\ndouble: impossible\n");
   }
 }
 
@@ -106,8 +105,8 @@ void ScalarConverter::convertFromDouble(const std::string& str) {
   } catch (std::out_of_range& e) {
     std::cout << "char: impossible\n"
               << "int: impossible\n"
-              << "float: nanf\n"
-              << "double: nan\n";
+              << "float: impossible\n"
+              << "double: impossible\n";
   }
 }
 
