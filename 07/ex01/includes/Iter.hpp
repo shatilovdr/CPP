@@ -6,13 +6,25 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:55:44 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/09 11:55:48 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/09 13:15:58 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITER_HPP_
 #define ITER_HPP_
 
+#include <cstddef>
 
+template <typename T>
+void iter(const T* arr, std::size_t length, void (*f)(const T&)) {
+  for (std::size_t i = 0; i < length; ++i) {
+    f(*(arr + i));
+  }
+}
+
+template <typename T>
+void f(const T& t) {
+  std::cout << t << " ";
+}
 
 #endif
