@@ -11,8 +11,7 @@ RED				:=	\033[41m
 EC				:=	\033[0m
 
 # SOURCE_FILES
-SRCS			:=	main.cpp \
-							Array.cpp
+SRCS			:=	main.cpp 
 SRCS_PATH		:=	srcs/
 
 # HEADER_FILES
