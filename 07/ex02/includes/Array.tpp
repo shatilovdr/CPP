@@ -6,9 +6,12 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 14:20:15 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/10 19:54:06 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/11 17:37:59 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ARRAY_TPP_
+#define ARRAY_TPP_
 
 template <typename T>
 Array<T>::Array() : ptr_(nullptr), size_(0) {}
@@ -70,3 +73,5 @@ template <typename T>
 unsigned int Array<T>::size() const {
   return size_;
 }
+
+#endif
