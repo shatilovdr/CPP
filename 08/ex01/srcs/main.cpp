@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 17:42:35 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/11 17:43:48 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/12 18:29:24 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 #include "Span.hpp"
 
 int main(void) {
-
+  Span s(10);
 }
