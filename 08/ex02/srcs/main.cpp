@@ -6,11 +6,12 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 18:38:34 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/13 18:38:36 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/13 23:07:40 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "MutantStack.hpp"
 
 int main() {
 
