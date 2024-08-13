@@ -6,15 +6,15 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 17:42:35 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/13 18:35:58 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/13 22:21:42 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <set>
-#include <ctime>
 #include <algorithm>
+#include <ctime>
+#include <iostream>
 #include <limits>
+#include <set>
 #include "Span.hpp"
 
 void test0();
@@ -25,8 +25,7 @@ void test4();
 void test5();
 void test6();
 
-int main()
-{
+int main() {
   std::srand(std::time(nullptr));
   test0();
   test1();
@@ -54,7 +53,7 @@ void test0() {
 
 void test1() {
   std::cout << "\n\n--TEST-01--Overflow\n";
-    int i;
+  int i;
   try {
     Span sp = Span(100);
 
@@ -62,7 +61,7 @@ void test1() {
       sp.addNumber(rand());
     }
   } catch (std::overflow_error& e) {
-    std::cout << "Current index: " << i << ". Error: " <<e.what() << '\n';
+    std::cout << "Current index: " << i << ". Error: " << e.what() << '\n';
   }
 
   try {
@@ -70,7 +69,7 @@ void test1() {
 
     sp.addNumber(5, 999);
   } catch (std::overflow_error& e) {
-    std::cout << "Error: " <<e.what() << '\n';
+    std::cout << "Error: " << e.what() << '\n';
   }
 
   try {
@@ -80,10 +79,9 @@ void test1() {
     std::generate(vec.begin(), vec.end(), rand);
     sp.addNumber(vec);
   } catch (std::overflow_error& e) {
-    std::cout << "Error: " <<e.what() << '\n';
+    std::cout << "Error: " << e.what() << '\n';
   }
 }
-
 
 void test2() {
   std::cout << "\n\n--TEST-02--Empty span\n";
@@ -91,23 +89,23 @@ void test2() {
   try {
     std::cout << sp.shortestSpan() << '\n';
   } catch (std::runtime_error& e) {
-    std::cout << "Error: " <<e.what() << '\n';
+    std::cout << "Error: " << e.what() << '\n';
   }
   try {
     std::cout << sp.longestSpan() << '\n';
   } catch (std::runtime_error& e) {
-    std::cout << "Error: " <<e.what() << '\n';
+    std::cout << "Error: " << e.what() << '\n';
   }
   sp.addNumber(1);
   try {
     std::cout << sp.shortestSpan() << '\n';
   } catch (std::runtime_error& e) {
-    std::cout << "Error: " <<e.what() << '\n';
+    std::cout << "Error: " << e.what() << '\n';
   }
   try {
     std::cout << sp.longestSpan() << '\n';
   } catch (std::runtime_error& e) {
-    std::cout << "Error: " <<e.what() << '\n';
+    std::cout << "Error: " << e.what() << '\n';
   }
   sp.addNumber(2);
   std::cout << sp.shortestSpan() << '\n';
@@ -116,7 +114,7 @@ void test2() {
 
 void test3() {
   std::cout << "\n\n--TEST-03--Limits check\n";
-  Span             sp = Span(100);
+  Span sp = Span(100);
 
   sp.addNumber(std::numeric_limits<int>::max());
   sp.addNumber(10);
@@ -144,7 +142,6 @@ void test4() {
   std::cout << sp.longestSpan() << '\n';
 }
 
-
 void test5() {
   std::cout << "\n\n--TEST-05--Longest span check\n";
   Span             sp = Span(100000);
@@ -154,7 +151,7 @@ void test5() {
   for (int& x : vec) {
     x = ++i * 10;
   }
-  vec[0] = 0;
+  vec[0]     = 0;
   vec[12345] = 7;
   sp.addNumber(vec);
   std::cout << sp.shortestSpan() << '\n';

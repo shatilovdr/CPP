@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 14:19:31 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/10 20:01:22 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/13 22:16:02 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 #include <iostream>
 
 template <typename T>
-class Array
-{
+class Array {
  public:
   Array();
   Array(unsigned int n);
@@ -26,8 +25,8 @@ class Array
 
   ~Array();
 
-  T& operator[](int n);
-  const T& operator[](int n) const;
+  T&           operator[](int n);
+  const T&     operator[](int n) const;
   unsigned int size() const;
 
  private:
