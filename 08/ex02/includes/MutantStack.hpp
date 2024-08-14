@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 18:39:21 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/13 23:02:29 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/14 10:57:14 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ class MutantStack : public std::stack<T, Container> {
   const_iterator end() const {
     return this->c.end();
   }
-  
 };
 
 #endif
