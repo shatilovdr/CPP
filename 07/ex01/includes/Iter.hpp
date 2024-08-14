@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 11:55:44 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/13 22:14:28 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/14 17:07:54 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,4 @@ void iter(T* arr, std::size_t length, void (*f)(T&)) {
     f(*(arr + i));
   }
 }
-
-template <typename T>
-void f(const T& t) {
-  std::cout << t << " ";
-}
-
 #endif

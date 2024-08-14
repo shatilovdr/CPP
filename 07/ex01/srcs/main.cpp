@@ -6,13 +6,18 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 18:03:03 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/09 14:00:24 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/14 17:08:06 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include "Iter.hpp"
+
+template <typename T>
+void f(const T& t) {
+  std::cout << t << " ";
+}
 
 struct A {
  public:
