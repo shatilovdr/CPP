@@ -1,5 +1,5 @@
 # MODULE09_EX00
-NAME			:=	bitcoin_exchange
+NAME			:=	btc
 
 # COMPILER
 CPP				:=	c++ -std=c++11
