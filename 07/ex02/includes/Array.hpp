@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 14:19:31 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/13 22:16:02 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:06:16 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ class Array {
  private:
   T*           ptr_;
   unsigned int size_;
+
+  // friend void test1();
 };
 
 #include "Array.tpp"
