@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 17:42:04 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/13 22:21:13 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/16 10:32:14 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define SPAN_HPP_
 
 #include <set>
-#include <sstream>
+#include <stdexcept>
 #include <vector>
 
 class Span {
