@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 18:39:21 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/14 10:57:14 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/19 11:17:34 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class MutantStack : public std::stack<T, Container> {
   MutantStack()                                      = default;
   MutantStack(const MutantStack& other)              = default;
   using std::stack<T, Container>::stack;
-  MutantStack& operator=(const MutantStack& other) & = delete;
+  MutantStack& operator=(const MutantStack& other) & = default;
 
   ~MutantStack() = default;
 

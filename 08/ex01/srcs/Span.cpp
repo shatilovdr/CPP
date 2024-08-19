@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 17:42:04 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/13 18:11:48 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/19 11:08:57 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,17 @@ void  Span::addNumber(const std::vector<int>& vec) {
   curr_ += vec.size();
   for (const int& x : vec) {
     hasDuplicates_ = !set_.insert(x).second;
+  }
+}
+
+void  Span::addNumber(std::vector<int>::const_iterator begin,
+                       std::vector<int>::const_iterator end) {
+  unsigned int size = end - begin;
+  if (cap_ - curr_ <size) {
+    throw std::overflow_error("Trying to add too many numbers to Span.");
+  }
+  curr_ += size;
+  for (std::vector<int>::const_iterator it = begin; it != end; ++it) {
+    hasDuplicates_ = !set_.insert(*it).second;
   }
 }

@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 17:42:35 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/13 22:21:42 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/19 11:10:49 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void test3();
 void test4();
 void test5();
 void test6();
+void test7();
 
 int main() {
   std::srand(std::time(nullptr));
@@ -34,6 +35,7 @@ int main() {
   test4();
   test5();
   test6();
+  test7();
   return 0;
 }
 
@@ -159,7 +161,18 @@ void test5() {
 }
 
 void test6() {
-  std::cout << "\n\n--TEST-06--Random numbers\n";
+  std::cout << "\n\n--TEST-06--Range of iterators\n";
+  Span             sp = Span(1000);
+  std::vector<int> vec(1000);
+
+  std::generate(vec.begin(), vec.end(), rand);
+  sp.addNumber(vec.begin(), vec.end());
+  std::cout << sp.shortestSpan() << '\n';
+  std::cout << sp.longestSpan() << '\n';
+}
+
+void test7() {
+  std::cout << "\n\n--TEST-07--Random numbers\n";
   Span             sp = Span(1000000);
   std::vector<int> vec(1000000);
 
@@ -168,3 +181,4 @@ void test6() {
   std::cout << sp.shortestSpan() << '\n';
   std::cout << sp.longestSpan() << '\n';
 }
+

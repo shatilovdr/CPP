@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 17:42:04 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/16 10:32:14 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/19 11:06:32 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class Span {
   void          addNumber(int number);
   void          addNumber(int number, unsigned int quantity);
   void          addNumber(const std::vector<int>& vec);
+  void          addNumber(std::vector<int>::const_iterator begin,
+                           std::vector<int>::const_iterator end);
 
  private:
   unsigned int   curr_;
