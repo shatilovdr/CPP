@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 12:36:09 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/14 18:58:25 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/19 18:08:54 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main(int argc, char* argv[]) {
   if (argc != 2) {
-    std::cout << "Usage: ./bts [filename]\n";
+    std::cout << "Error: could not open file.\n";
     return 0;
   }
   try {
@@ -24,4 +24,3 @@ int main(int argc, char* argv[]) {
     std::cout << e.what() << '\n';
   }
 }
-
