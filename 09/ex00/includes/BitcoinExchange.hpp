@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 12:34:57 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/19 18:09:19 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/20 14:31:31 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 #define BITCOIN_EXCHANGE_HPP_
 
 #include <algorithm>
+#include <ctime>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <map>
 #include <regex>
 #include <sstream>
+#include <stdexcept>
 #include <string>
 
 class BitcoinExchange {
@@ -35,6 +37,8 @@ class BitcoinExchange {
  private:
   static void LoadTable();
   static void ReadFile(const std::string& database);
+  static void ParseAndPrintLine(const std::string& line);
+  static bool CheckDate(const std::string& date);
 
   static std::map<const std::string, const float> table_;
 };

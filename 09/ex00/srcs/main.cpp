@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 12:36:09 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/19 18:08:54 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/20 14:28:44 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
   }
   try {
     BitcoinExchange::Exchange(argv[1]);
-  } catch (std::exception& e) {
-    std::cout << e.what() << '\n';
+  } catch (std::string& str) {
+    std::cout << str << '\n';
   }
 }
