@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 12:36:40 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/20 14:31:34 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/20 16:38:11 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void BitcoinExchange::LoadTable() {
   std::ifstream input("data.csv");
 
   if (!input.is_open()) {
-    throw "Failed to open file: data.csv";
+    throw std::runtime_error("Failed to open file: data.csv");
   }
   std::string line;
   std::getline(input, line);
   if ( line != "date,exchange_rate") {
-    throw "Invalid database file: data.csv";
+    throw std::runtime_error("Invalid database file: data.csv");
   }
   while (std::getline(input, line, ',')) {
     std::string str_rate;
@@ -41,18 +41,18 @@ void BitcoinExchange::ReadFile(const std::string& database) {
   std::ifstream input(database);
 
   if (!input.is_open()) {
-    throw "Failed to open file " + database;
+    throw std::runtime_error("Failed to open file " + database);
   }
   std::string line;
   std::getline(input, line);
   if (!std::regex_match(line, std::regex(R"(\s*date\s*\|\s*value\s*)"))) {
-    throw "Invalid database file: " + database;
+    throw std::runtime_error("Invalid database file: " + database);
   }
   std::regex pattern(R"(\d{4}-\d{2}-\d{2}\|[-+]?(\d+\.?\d*|\d*\.?\d+))");
   while (std::getline(input, line)) {
     line.erase(std::remove_if(line.begin(), line.end(), ::isspace), line.end());
     if (!std::regex_match(line, pattern)) {
-      std::cout << "Error: Incorrect input: " << line << '\n';
+      std::cout << "Error: bad input => " << line << '\n';
       continue;
     }
     ParseAndPrintLine(line);
@@ -61,7 +61,7 @@ void BitcoinExchange::ReadFile(const std::string& database) {
 
 void BitcoinExchange::ParseAndPrintLine(const std::string& line) {
   size_t             delimeter = line.find('|');
-  std::string        date = line.substr(0, delimeter);
+  const std::string  date = line.substr(0, delimeter);
 
   if (!CheckDate(date)) {
     std::cout << "Error: bad input => " << date << '\n';
@@ -69,13 +69,13 @@ void BitcoinExchange::ParseAndPrintLine(const std::string& line) {
   }
   try {
     float value = std::stof(line.substr(delimeter + 1));
-    if (value > 1000.0f) {
+    if (value > MAX_ALLOWED_VALUE) {
       throw std::out_of_range("large number");
-    } else if (value < 0.0f) {
+    } else if (value < MIN_ALLOWED_VALUE) {
       std::cout << "Error: not a positive number.\n";
       return;
     }
-    std::cout << date << ", value: " << value <<'\n';
+    PrintPair(date, value);
   } catch (std::out_of_range& e) {
     std::cout << "Error: too large a number.\n";
     return;
@@ -101,4 +101,14 @@ bool BitcoinExchange::CheckDate(const std::string& date) {
     return false;
   }
   return true;
+}
+
+void BitcoinExchange::PrintPair(const std::string& date, float value) {
+  auto  upper = --table_.upper_bound(date);
+  float rate;
+  if (date.compare((*table_.begin()).first) < 0)
+    rate = 0;
+  else
+    rate = (*upper).second;
+  std::cout << date << " => " << value << " = " << value * rate << '\n';
 }
