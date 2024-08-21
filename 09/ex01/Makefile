@@ -1,5 +1,5 @@
 # MODULE09_EX01
-NAME					:=	rpn
+NAME					:=	RPN
 
 # COMPILER
 CPP						:=	c++ -std=c++11

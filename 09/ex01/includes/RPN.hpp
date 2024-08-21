@@ -6,21 +6,36 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:55:17 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/21 11:58:42 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/21 14:29:45 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RPN_HPP_
 #define RPN_HPP_
 
-class BitcoinExchange {
+#include <cctype>
+#include <iostream>
+#include <regex>
+#include <stack>
+#include <string>
+
+class RPN {
  public:
-  BitcoinExchange()                                        = delete;
-  BitcoinExchange(const BitcoinExchange& other)            = delete;
-  BitcoinExchange& operator=(const BitcoinExchange& other) = delete;
+  RPN() = delete;
+  RPN(const std::string& str);
+  RPN(const RPN& other)            = delete;
+  RPN& operator=(const RPN& other) = delete;
 
-  ~BitcoinExchange() = delete;
+  ~RPN() = default;
 
+  void  CalculateExpression();
+
+ private:
+  bool  CheckInput();
+  void  PerformOperations();
+
+  std::string       str_;
+  std::stack<float> stack_;
 };
 
 #endif
