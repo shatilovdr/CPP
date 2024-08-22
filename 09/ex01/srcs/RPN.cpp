@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 11:54:51 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/21 15:04:30 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:26:16 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 RPN::RPN(const std::string& str) : str_(str) {}
 
 void RPN::CalculateExpression() {
-  if (!CheckInput()) {
+  if (CheckInput()) 
+    PerformOperations();
+  else
     std::cerr << "Error\n";
-    return;
-  }
-  PerformOperations();
 }
 
 bool RPN::CheckInput() {
