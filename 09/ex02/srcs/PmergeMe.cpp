@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:09:46 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/24 18:51:59 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/24 23:30:08 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,44 +28,43 @@ void PmergeMe::sort() {
   sortVector();
 }
 
-void print(std::vector<int>& big, std::vector<int>& small) {
-  size_t limit = big.size() - small.size();
+void print(std::vector<int>& main, std::vector<int>& small) {
   std::cout << '\n';
-  for (size_t i = 0; i < limit; ++i) {
-    std::cout << big[i] << '\t';
-  }
+  for (int& x : main)
+    std::cout << '\t' << x;
   std::cout << '\n';
-  for (size_t i = 0; i < small.size(); ++i) {
-    std::cout << small[i] << '\t';
-  }
+
+  for (int& x : small)
+    std::cout << x << '\t';
   std::cout << '\n';
 }
 
 void PmergeMe::sortVector() {
-  int main_size = input_.size();
-  int small_size = main_size / 2 + main_size % 2;
-  std::vector<int>  main(main_size);
-  std::vector<int>  small(small_size);
+  std::vector<int>  main;
+  std::vector<int>  small;
+
+  main.reserve(input_.size());
+  small.reserve(input_.size() / 2 + 1);
 
   initVector(main, small);
+  print(main, small);
 }
 
 void PmergeMe::initVector(std::vector<int>& main, std::vector<int>& small) {
   //copy values
-  for (size_t i = 0, main_idx = 0, small_idx = 0; i < input_.size(); ++i) {
+  for (size_t i = 0; i < input_.size(); ++i) {
     if (i % 2 == 0)
-      small[main_idx++] = input_[i];
+      small.push_back(input_[i]);
     else
-      main[small_idx++] = input_[i];
+      main.push_back(input_[i]);
   }
   //compare pairs
-  size_t limit = main.size() - small.size();
-  for (size_t i = 0; i < limit; ++i) {
+  for (size_t i = 0; i < main.size(); ++i) {
     if (small[i] > main[i])
       std::swap(small[i], main[i]);
   }
-//insertion sort for larger elements
-  for (size_t i = 1; i < small.size() - 1; ++i) {
+  //insertion sort for larger elements
+  for (size_t i = 1; i < main.size(); ++i) {
     int main_val = main[i];
     int small_val = small[i];
     int j = i - 1;
@@ -78,4 +77,5 @@ void PmergeMe::initVector(std::vector<int>& main, std::vector<int>& small) {
     main[j + 1] = main_val;
     small[j + 1] = small_val;
   }
+  main.insert(main.begin(), small[0]);
 }
