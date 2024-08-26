@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:10:28 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/26 16:38:30 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/26 17:23:53 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,14 @@ class PmergeMe {
 
  private:
   using Vector = std::vector<int>;
+  using Deque = std::deque<int>;
 
   void    Sort();
   void    SortVector(Vector& main);
   void    InitVector(Vector& main, Vector& small);
+  void    SortDeque(Deque& main);
+  void    InitDeque(Deque& main, Deque& small);
+  size_t  BinarySearch(Deque& vec, size_t first, size_t last, int value) const;
   size_t  BinarySearch(Vector& vec, size_t first, size_t last, int value) const;
   void    LogResults(std::string type, double duration, int mode);
 
@@ -45,5 +49,5 @@ class PmergeMe {
 };
 
 std::ostream& operator<<(std::ostream& os, const std::vector<int>& vector);
-
+std::ostream& operator<<(std::ostream& os, const std::deque<int>& deque);
 #endif

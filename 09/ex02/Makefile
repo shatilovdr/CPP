@@ -12,7 +12,8 @@ EC						:=	\033[0m
 
 # SOURCE_FILES
 SRCS					:=	main.cpp \
-									PmergeMe.cpp
+									PmergeMe.cpp \
+									DequeSort.cpp
 SRCS_PATH			:=	srcs/
 
 # HEADER_FILES
