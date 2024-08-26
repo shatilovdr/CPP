@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:10:28 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/26 11:30:04 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/26 16:38:30 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 #define PMERGEME_HPP_
 
 #include <algorithm>
+#include <chrono>
+#include <cmath>
 #include <deque>
+#include <iomanip>
 #include <iostream>
 #include <numeric>
 #include <string>
@@ -33,11 +36,14 @@ class PmergeMe {
   using Vector = std::vector<int>;
 
   void    Sort();
-  void    SortVector();
+  void    SortVector(Vector& main);
   void    InitVector(Vector& main, Vector& small);
-  size_t  BinarySearch(Vector& vec, size_t first, size_t last, int value);
+  size_t  BinarySearch(Vector& vec, size_t first, size_t last, int value) const;
+  void    LogResults(std::string type, double duration, int mode);
 
-  const Vector input_;
+  const Vector  input_;
 };
+
+std::ostream& operator<<(std::ostream& os, const std::vector<int>& vector);
 
 #endif

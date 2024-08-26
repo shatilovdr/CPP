@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:09:46 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/26 11:32:01 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/26 16:38:22 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,27 @@ PmergeMe::PmergeMe(Vector& array) : input_(array) {
 }
 
 void PmergeMe::Sort() {
-  std::cout << "Before:\t";
-  for (const int& x : input_)
-    std::cout << x << ' ';
-  std::cout << '\n';
-  // std::cout << "\nAfter:\t";
-  // for (const int& x : vec_)
-  //   std::cout << x << ' ';
-  // std::cout << '\n';
-  SortVector();
+  // std::cout << "Before:\t" << input_ << '\n';
+  std::cout << std::fixed << std::setprecision(5);
+
+  auto v_start = std::chrono::high_resolution_clock::now();
+  Vector sorted_vector;
+  SortVector(sorted_vector);
+  if (!std::is_sorted(sorted_vector.begin(), sorted_vector.end()))
+    throw std::runtime_error("Vector is not sorted");
+  auto v_end = std::chrono::high_resolution_clock::now();
+  auto v_duration = std::chrono::duration_cast<std::chrono::nanoseconds>(v_end - v_start).count();
+  
+
+  // std::cout << "After(vector):\t" << sorted_vector << '\n';
+  LogResults("std::vector", v_duration / 1000.0, 1);
+
 }
 
-void PmergeMe::SortVector() {
+void PmergeMe::SortVector(Vector& main) {
   if (input_.size() == 1) //If array size == 1 there is nothing to sort
     return;
 
-  Vector               main;
   Vector               small;
   std::vector<size_t>  insertion_limits(input_.size() / 2 + 1);
 
@@ -97,7 +102,7 @@ void PmergeMe::InitVector(Vector& main, Vector& small) {
   }
 }
 
-size_t  PmergeMe::BinarySearch(Vector& vec, size_t first, size_t last, int value) {
+size_t  PmergeMe::BinarySearch(Vector& vec, size_t first, size_t last, int value) const {
   while (first != last) {
     size_t mid = (first + last) / 2;
     if (value < vec[mid])
@@ -106,4 +111,19 @@ size_t  PmergeMe::BinarySearch(Vector& vec, size_t first, size_t last, int value
       first = mid + 1;
   }
   return last;
+}
+
+std::ostream& operator<<(std::ostream& os, const std::vector<int>& vector)
+{
+    for (int element : vector) {
+        os << element << ' ';
+    }
+    return os;
+}
+
+void  PmergeMe::LogResults(std::string type, double duration, int mode) {
+  if (mode == 0)
+    std::cout << "Time to process a range of " << input_.size() << " elements with " << type << " : " << duration << " us\n";
+  else
+    std::cout << input_.size() << '\t' << duration << " us\n";
 }
