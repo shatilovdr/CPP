@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:10:28 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/24 18:47:45 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:30:04 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <algorithm>
 #include <deque>
 #include <iostream>
+#include <numeric>
 #include <string>
 #include <vector>
 
@@ -29,11 +30,14 @@ class PmergeMe {
   ~PmergeMe() = default;
 
  private:
-  void  sort();
-  void  sortVector();
-  void  initVector(std::vector<int>& main, std::vector<int>& small);
+  using Vector = std::vector<int>;
 
-  const std::vector<int> input_;
+  void    Sort();
+  void    SortVector();
+  void    InitVector(Vector& main, Vector& small);
+  size_t  BinarySearch(Vector& vec, size_t first, size_t last, int value);
+
+  const Vector input_;
 };
 
 #endif
