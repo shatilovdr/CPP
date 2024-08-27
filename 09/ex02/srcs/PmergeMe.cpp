@@ -6,7 +6,7 @@
 /*   By: dshatilo <dshatilo@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:09:46 by dshatilo          #+#    #+#             */
-/*   Updated: 2024/08/26 17:24:30 by dshatilo         ###   ########.fr       */
+/*   Updated: 2024/08/27 11:09:22 by dshatilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,5 +137,5 @@ void  PmergeMe::LogResults(std::string type, double duration, int mode) {
   if (mode == 0)
     std::cout << "Time to process a range of " << input_.size() << " elements with " << type << " : " << duration << " us\n";
   else
-    std::cout << type << '\t' << duration << " us\n";
+    std::cout << duration << '\n';
 }

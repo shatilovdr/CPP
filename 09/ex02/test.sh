@@ -1,15 +1,29 @@
 #!/bin/bash
 
-for i in {1..100}
+sum=0
+
+if [ $1 ]; then
+    rm -rf inputs.txt
+    for i in {1..1000}
+    do
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            max_range=$(jot -r 1 0 2147483647)
+            cmd=$(jot -r $1 1 $max_range | tr "\n" " ")
+        else
+            max_range=$(shuf -i 0-2147483647 -n 1)
+            cmd=$(shuf -i 1-$max_range -n $1 | tr "\n" " ")
+        fi
+        echo "$cmd" >> inputs.txt
+    done
+fi
+
+while IFS= read -r line
 do
-    max_range=$(shuf -i 1-2147483647 -n 1)
-    num_elements=$1
-#linux
-    args=$(shuf -i 1-$max_range -n $num_elements | tr "\n" " ")
-#macOS
-    # args=$(jot -r $num_elements 1 $max_range | tr "\n" " ")
+    read -a numbers <<< "$line"
+    output=$(./PmergeMe "${numbers[@]}")
+    sum=$(echo "$sum + $output" | bc)
+done < inputs.txt
 
-    ./PmergeMe $args
-done
 
-# ./PmergeMe `shuf -i 1-2147483647 -n 100 | tr "\n" " "`
+average=$(echo "scale=5; $sum / 1000" | bc)
+echo "Average: $average"
